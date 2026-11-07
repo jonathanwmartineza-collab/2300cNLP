@@ -3,226 +3,425 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>You're in | Kitchen Table AI</title>
-  <meta name="description" content="Your spot in the free 30-minute Kitchen Table AI taster is saved.">
+  <title>Kitchen Table AI | AI basics for small business owners</title>
+  <meta name="description" content="A small, beginner-only live workshop for small business owners. Start with the message you've been avoiding and leave with a reply written in your own voice.">
   <meta name="theme-color" content="#F7F3EC">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="You're not behind. | Kitchen Table AI">
+  <meta property="og:description" content="A small, beginner-only live AI workshop for small business owners. No jargon, no hype.">
+  <meta property="og:image" content="/images/hero-laptop.jpg">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='%23E0A43A'/%3E%3C/svg%3E">
   <link rel="preload" href="/fonts/atkinson-hyperlegible-next-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/fraunces-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <style>
-    /* Fonts are self-hosted (no third-party requests). */
-    @font-face { font-family: 'Atkinson Hyperlegible Next'; font-style: normal; font-weight: 400 700; font-display: swap;
-      src: url('/fonts/atkinson-hyperlegible-next-latin-ext.woff2') format('woff2');
-      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-    @font-face { font-family: 'Atkinson Hyperlegible Next'; font-style: normal; font-weight: 400 700; font-display: swap;
-      src: url('/fonts/atkinson-hyperlegible-next-latin.woff2') format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 600; font-display: swap;
-      src: url('/fonts/fraunces-600-vietnamese.woff2') format('woff2');
-      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB; }
-    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 600; font-display: swap;
-      src: url('/fonts/fraunces-600-latin-ext.woff2') format('woff2');
-      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-    @font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 600; font-display: swap;
-      src: url('/fonts/fraunces-600-latin.woff2') format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-
-    :root {
-      --cream: #F7F3EC;
-      --sand: #EDE6DA;
-      --wheat: #F3E2C2;
-      --line: #D9D0C1;
-      --ink: #1F2A33;
-      --muted: #4F5A65;
-      --teal: #1E5A5A;
-      --teal-dark: #154242;
-      --teal-tint: rgba(30, 90, 90, 0.07);
-      --amber: #E0A43A;
-      --rust: #A3461F;
-      --green: #2E7D4F;
-      --error: #A3261F;
-      --serif: 'Fraunces', Georgia, serif;
-      --sans: 'Atkinson Hyperlegible Next', system-ui, -apple-system, sans-serif;
-    }
-
+    :root { --display: 'DM Serif Display'; --body: 'Atkinson Hyperlegible Next'; }
+    html, body { margin: 0; background: #F7F3EC; color: #1F2A33; font-family: var(--body), sans-serif; font-synthesis: none; font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
     *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: #1E5A5A; }
+    a:hover { color: #154242; }
     h1, h2, h3, p { margin: 0; }
-    a { color: var(--teal); }
-    a:hover { color: var(--teal-dark); }
-    :focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
-    .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-
-    /* Header */
-    .site-header { border-bottom: 1px solid var(--line); height: clamp(56px, 4.44vw, 64px); padding: 0 clamp(16px, 4vw, 48px); }
-    .site-header__inner { max-width: 1120px; height: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .brand { white-space: nowrap; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--teal); font: 600 clamp(19px, 1.6vw, 24px)/1 var(--serif); }
-    .brand__dot { width: 12px; height: 12px; border-radius: 50%; background: var(--amber); }
-    .back-link { white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 14px; border-radius: 12px; color: var(--teal); font-weight: 700; font-size: 16px; text-decoration: none; }
-    .back-link:hover { background: var(--teal-tint); color: var(--teal-dark); }
-
-    /* Main */
-    main { position: relative; padding: clamp(56px, 6.67vw, 96px) clamp(16px, 4vw, 48px) clamp(80px, 8.9vw, 128px); }
-    .sun { position: absolute; top: 0; right: clamp(24px, 12vw, 200px); width: clamp(72px, 7vw, 104px); height: clamp(36px, 3.5vw, 52px); background: var(--amber); border-radius: 0 0 999px 999px; }
-    .stack { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
-    .intro { display: flex; flex-direction: column; gap: 16px; }
-    .status { display: flex; align-items: center; gap: 10px; color: var(--green); font-weight: 700; font-size: 16px; }
-    h1 { font: 600 clamp(34px, 5vw, 44px)/1.12 var(--serif); text-wrap: balance; }
-
-    .event { background: var(--wheat); border-radius: 20px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; }
-    .event__body { flex: 1 1 240px; }
-    .event__label { font-size: 15px; color: var(--muted); font-weight: 700; }
-    .event__when { font-size: 20px; font-weight: 700; }
-
-    .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; background: #fff; border-radius: 20px; box-shadow: 0 1px 2px rgba(31, 42, 51, 0.08), 0 6px 16px rgba(31, 42, 51, 0.06); }
-    .step { display: flex; gap: 20px; padding: 28px; }
-    .step + .step { border-top: 1px solid var(--line); }
-    .step__num { width: 44px; height: 44px; flex: none; border-radius: 50%; background: var(--rust); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-    .step__num--amber { background: var(--amber); color: var(--ink); }
-    .step__body { padding-top: 8px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
-    .step__title { font-weight: 700; font-size: 20px; line-height: 1.4; }
-    .cal-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
-
-    .btn { display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0 20px; border-radius: 12px; font: 700 18px/1 var(--sans); text-decoration: none; cursor: pointer; }
-    .btn--outline { flex: 1 1 160px; border: 2px solid var(--teal); color: var(--teal); background: transparent; }
-    .btn--outline:hover { background: var(--teal-tint); }
-    .btn--solid { align-self: flex-start; padding: 0 32px; border: none; background: var(--teal); color: #fff; }
-    .btn--solid:hover { background: var(--teal-dark); }
-    .btn[disabled] { opacity: 0.6; cursor: progress; }
-
-    .ask { background: var(--sand); border-radius: 20px; padding: clamp(24px, 2.8vw, 40px); display: flex; flex-direction: column; gap: 12px; }
-    .ask label { font-weight: 700; font-size: 18px; }
-    .ask label span { font-weight: 400; color: var(--muted); }
-    .ask form { display: flex; flex-direction: column; gap: 16px; }
-    textarea { width: 100%; border: 2px solid #7A8590; border-radius: 8px; padding: 14px 16px; font: 18px/1.5 var(--sans); color: var(--ink); background: #fff; resize: vertical; }
-    .ask__thanks { display: flex; align-items: center; gap: 10px; color: var(--green); font-weight: 700; }
-    .ask__error { color: var(--error); font-weight: 700; font-size: 16px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
     [hidden] { display: none !important; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
-    /* Footer */
-    .site-footer { border-top: 1px solid var(--line); padding: 32px clamp(16px, 4vw, 48px); font-size: 16px; color: var(--muted); }
-    .site-footer__inner { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
-
-    @media (max-width: 480px) {
-      .back-link__extra { display: none; }
-      .back-link { padding: 0 8px; }
-      .step { gap: 16px; padding: 22px 18px; }
-      .event { padding: 20px; }
-    }
+    /* Hover and keyboard-focus states (override the inline styles). */
+    .h1:hover{background:#154242 !important;color:#fff !important;transform:translateY(-1px) !important}
+    .f1:focus-visible{outline:3px solid #1E5A5A !important;outline-offset:2px !important}
+    .h2:hover{background:#154242 !important;color:#fff !important;transform:translateY(-2px) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 12px 28px rgba(30,90,90,0.32) !important}
+    .h3:hover{background:rgba(255,255,255,0.8) !important;color:#154242 !important;transform:translateY(-2px) !important}
+    .h4:hover{transform:translateY(-4px) !important}
+    .f2:focus-visible{outline:3px solid #F7F3EC !important;outline-offset:2px !important}
+    .h5:hover{background:#154242 !important;color:#fff !important;transform:translateY(-2px) !important}
+    .h6:hover{background:rgba(255,255,255,0.85) !important;color:#154242 !important;transform:translateY(-2px) !important}
   </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="site-header__inner">
-    <a class="brand" href="/"><span class="brand__dot" aria-hidden="true"></span>Kitchen Table AI</a>
-    <a class="back-link" href="/">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
-      Back<span class="back-link__extra">&nbsp;to the page</span>
-    </a>
-  </div>
-</header>
+
+<div style="position:sticky;top:0;z-index:20;padding:12px clamp(12px,3vw,32px)">
+  <header role="banner" style="max-width:1120px;margin:0 auto;height:60px;border-radius:20px;padding:0 8px 0 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,0.55);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);border:1px solid rgba(255,255,255,0.8);box-shadow:inset 0 1px 0 rgba(255,255,255,0.9),0 1px 2px rgba(31,42,51,0.06),0 10px 30px rgba(31,42,51,0.08)">
+    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#1E5A5A;font:600 clamp(19px,1.6vw,23px)/1 var(--display),serif;white-space:nowrap"><span style="width:12px;height:12px;border-radius:50%;background:#E0A43A;box-shadow:0 0 12px rgba(224,164,58,0.7);flex:none"></span>Kitchen Table AI</a>
+    <a class="h1 f1" href="/thank-you" style="display:inline-flex;align-items:center;height:44px;padding:0 clamp(14px,1.4vw,20px);border-radius:12px;background:#1E5A5A;color:#fff;font:700 clamp(16px,1.25vw,18px)/1 var(--body),sans-serif;text-decoration:none;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25);transition:transform .2s,background .2s">Try the free taster</a>
+  </header>
+</div>
 
 <main>
-  <div class="sun" aria-hidden="true"></div>
-  <div class="stack">
-    <div class="intro">
-      <p class="status">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-        Success: your spot in the taster is saved
-      </p>
-      <h1>You're in. See you at the table.</h1>
-    </div>
-
-    <div class="event">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
-      <div class="event__body">
-        <p class="event__label">Free 30-minute taster</p>
-        <!-- TODO: replace the date placeholder once the session date is set. -->
-        <p class="event__when">[Day, Month Date] · 7:00–7:30 p.m. Eastern Time (ET)</p>
+<section data-screen-label="Hero" style="position:relative;overflow-x:clip;padding:clamp(24px,3vw,40px) clamp(16px,4vw,48px) clamp(72px,7.5vw,112px);margin-top:-84px;padding-top:calc(84px + clamp(24px,3vw,40px))">
+  <div data-drift="1" style="position:absolute;top:-10%;right:-8%;width:min(900px,140vw);height:min(900px,140vw);border-radius:50%;background:radial-gradient(circle,rgba(224,164,58,0.38) 0%,rgba(224,164,58,0.12) 40%,rgba(224,164,58,0) 70%);pointer-events:none"></div>
+  <div data-drift="2" style="position:absolute;bottom:-20%;left:-15%;width:min(760px,130vw);height:min(760px,130vw);border-radius:50%;background:radial-gradient(circle,rgba(94,127,107,0.22) 0%,rgba(94,127,107,0) 68%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(48px,5.5vw,80px)">
+    <div style="flex:11 1 340px;display:flex;flex-direction:column;gap:24px">
+      <p data-in="1" style="align-self:flex-start;display:flex;align-items:center;gap:10px;color:#A3461F;font-weight:700;font-size:16px;line-height:1.4;padding:8px 16px 8px 12px;border-radius:999px;background:rgba(255,255,255,0.5);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.8)"><span style="width:10px;height:10px;border-radius:50%;background:#E0A43A;flex:none"></span>For small business owners who haven't really started with AI</p>
+      <h1 data-in="2" style="font:600 clamp(36px,3.9vw,56px)/1.08 var(--display),serif;letter-spacing:-0.02em;text-wrap:balance">You're not behind. Nobody ever showed you how AI works for a business <span style="background:linear-gradient(transparent 62%,rgba(224,164,58,0.45) 62%,rgba(224,164,58,0.45) 92%,transparent 92%)">like yours.</span></h1>
+      <p data-in="3" style="font-size:20px;line-height:1.6;max-width:32em;color:#1F2A33;text-wrap:pretty">A small, beginner-only live workshop. We start with the message you've been avoiding, and you leave with a reply written in your own voice.</p>
+      <div data-in="4" style="display:flex;flex-wrap:wrap;gap:12px;padding-top:8px">
+        <a class="h2 f1" href="/thank-you" style="flex:1 1 280px;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 24px;border-radius:12px;background:#1E5A5A;color:#fff;font:700 18px/1 var(--body),sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 8px 20px rgba(30,90,90,0.25);transition:transform .2s,box-shadow .2s,background .2s">Try the free 30-minute taster</a>
+        <a class="h3 f1" href="#price" style="flex:1 1 220px;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 24px;border-radius:12px;border:2px solid #1E5A5A;background:rgba(255,255,255,0.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#1E5A5A;font:700 18px/1 var(--body),sans-serif;text-decoration:none;transition:transform .2s,background .2s">Save my seat ($197)</a>
+      </div>
+      <div data-in="5" style="display:flex;flex-wrap:wrap;gap:8px 24px;color:#4F5A65;font-size:16px">
+        <span style="display:flex;align-items:center;gap:8px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.75 6 6 9-13.5"></path></svg>Beginners only</span>
+        <span style="display:flex;align-items:center;gap:8px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.75 6 6 9-13.5"></path></svg>Nobody gets called on</span>
+        <span style="display:flex;align-items:center;gap:8px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.75 6 6 9-13.5"></path></svg>No jargon, no hype</span>
       </div>
     </div>
 
-    <ol class="steps">
-      <li class="step">
-        <span class="step__num" aria-hidden="true">1</span>
-        <div class="step__body"><p class="step__title">Check your inbox for the link.</p></div>
-      </li>
-      <li class="step">
-        <span class="step__num" aria-hidden="true">2</span>
-        <div class="step__body">
-          <p class="step__title">Add it to your calendar.</p>
-          <!-- TODO: point these at a real .ics file and Google Calendar link once the date is set. -->
-          <div class="cal-buttons">
-            <a class="btn btn--outline" href="#">Apple Calendar</a>
-            <a class="btn btn--outline" href="#">Google Calendar</a>
-          </div>
-        </div>
-      </li>
-      <li class="step">
-        <span class="step__num step__num--amber" aria-hidden="true">3</span>
-        <div class="step__body"><p class="step__title">Pick the one message you'd like help with.</p></div>
-      </li>
-    </ol>
-
-    <div class="ask">
-      <!-- Netlify Forms picks this form up at deploy time; submissions appear under Forms in the Netlify dashboard. -->
-      <form id="task-form" name="taster-task" method="POST" action="/" data-netlify="true" netlify-honeypot="company">
-        <input type="hidden" name="form-name" value="taster-task">
-        <p class="visually-hidden"><label>Leave this empty: <input name="company" tabindex="-1" autocomplete="off"></label></p>
-        <label for="task">What's one task you'd love off your plate? <span>(optional)</span></label>
-        <textarea id="task" name="task" rows="4" placeholder="For example: replying to quote requests"></textarea>
-        <p class="ask__error" id="task-error" role="alert" hidden>Sorry, that didn't send. Please try again, or email us at hello@kitchentable.ai.</p>
-        <button class="btn btn--solid" type="submit">Send</button>
-      </form>
-      <p class="ask__thanks" id="task-thanks" role="status" hidden>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
-        Thanks. I'll keep it in mind for the taster.
-      </p>
+    <div data-in="3" style="flex:9 1 300px;position:relative;padding-top:56px">
+      <div style="position:absolute;top:-24px;left:58%;width:2px;height:58px;background:#1F2A33;opacity:0.35"></div>
+      <div data-swing="1" aria-hidden="true" style="position:absolute;top:30px;left:calc(58% - 46px);width:94px;z-index:2;transform-origin:47px -54px">
+        <div style="width:94px;height:47px;background:#E0A43A;border-radius:94px 94px 0 0;box-shadow:inset 0 -6px 0 rgba(0,0,0,0.08)"></div>
+        
+      </div>
+      <div style="position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;border:1px solid rgba(255,255,255,0.8);box-shadow:0 24px 60px rgba(31,42,51,0.14);background:repeating-linear-gradient(135deg,#EDE6DA 0 12px,#F3EDE3 12px 24px);display:flex;align-items:flex-start;justify-content:flex-end;padding:20px">
+        <img src="/images/hero-laptop.jpg" width="1400" height="2100" fetchpriority="high" alt="Smiling older man working on a laptop at home" onerror="this.style.display='none'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(0.18) saturate(0.95)">
+        <div style="position:absolute;inset:0;background:linear-gradient(200deg,rgba(255,214,140,0.28),rgba(255,214,140,0) 45%)"><div data-glow="1" style="position: absolute; top: -6px; left: 94px; width: 374px; height: 300px; background: radial-gradient(ellipse at 50% 0%,rgba(255,214,140,0.55),rgba(255,214,140,0) 70%); pointer-events: none"></div></div>
+        
+      </div>
+      <div data-float="1" style="position:absolute;left:calc(16px - 4.5vw);right:22%;bottom:clamp(20px,3vw,40px);z-index:3;border-radius:20px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,0.62);backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);border:1px solid rgba(255,255,255,0.85);box-shadow:inset 0 1px 0 rgba(255,255,255,0.95),0 18px 40px rgba(31,42,51,0.14)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:15px;color:#4F5A65"><span style="font-weight:700;color:#1F2A33">Your reply, in your voice</span><span style="display:flex;align-items:center;gap:6px"><span style="position:relative;width:9px;height:9px;border-radius:50%;background:#E0A43A"><span data-pulse="1" style="position:absolute;inset:0;border-radius:50%;background:#E0A43A"></span></span>Example</span></div>
+        <p style="font-size:16px;line-height:1.5">Hi [Customer], you're right, and I'm sorry. I can send someone back this week to fix them.</p>
+      </div>
     </div>
   </div>
+</section>
+
+<section data-screen-label="Problem" style="position:relative;overflow:hidden;background:#EDE6DA;padding:clamp(64px,6.67vw,96px) clamp(16px,4vw,48px)">
+  <div data-drift="3" style="position:absolute;top:-30%;left:30%;width:min(800px,150vw);height:min(800px,150vw);border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.75),rgba(255,255,255,0) 65%);pointer-events:none"></div>
+  <div data-drift="1" style="position:absolute;bottom:-40%;right:-10%;width:min(700px,140vw);height:min(700px,140vw);border-radius:50%;background:radial-gradient(circle,rgba(30,90,90,0.16),rgba(30,90,90,0) 65%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+    <h2 data-reveal="1" style="font:600 clamp(34px,3.05vw,44px)/1.15 var(--display),serif;letter-spacing:-0.01em;max-width:18em;text-wrap:balance">Opened ChatGPT once, got a wall of junk, and closed it?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px">
+      <div class="h4" data-reveal="1" style="border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.55);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);border:1px solid rgba(255,255,255,0.85);box-shadow:inset 0 1px 0 rgba(255,255,255,0.95),0 12px 32px rgba(31,42,51,0.07);transition:transform .3s">
+        <span style="width:56px;height:56px;border-radius:16px;background:rgba(30,90,90,0.08);display:flex;align-items:center;justify-content:center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"></path></svg></span>
+        <p style="font:600 23px/1.3 var(--display),serif">"I don't even know where to start."</p>
+        <p>Almost everyone says this. Starting with one real task fixes it.</p>
+      </div>
+      <div class="h4" data-reveal="2" style="border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.55);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);border:1px solid rgba(255,255,255,0.85);box-shadow:inset 0 1px 0 rgba(255,255,255,0.95),0 12px 32px rgba(31,42,51,0.07);transition:transform .3s">
+        <span style="width:56px;height:56px;border-radius:16px;background:rgba(30,90,90,0.08);display:flex;align-items:center;justify-content:center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125"></path></svg></span>
+        <p style="font:600 23px/1.3 var(--display),serif">"I'm not a tech person."</p>
+        <p>You don't need to be. If you can write an email, you can do this.</p>
+      </div>
+      <div class="h4" data-reveal="3" style="border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.55);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);border:1px solid rgba(255,255,255,0.85);box-shadow:inset 0 1px 0 rgba(255,255,255,0.95),0 12px 32px rgba(31,42,51,0.07);transition:transform .3s">
+        <span style="width:56px;height:56px;border-radius:16px;background:rgba(30,90,90,0.08);display:flex;align-items:center;justify-content:center"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z"></path></svg></span>
+        <p style="font:600 23px/1.3 var(--display),serif">"Is it even safe to type my clients' details in?"</p>
+        <p>Good instinct. We start with what never to paste in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="For you" style="padding:clamp(64px,6.67vw,96px) clamp(16px,4vw,48px)">
+  <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:32px clamp(32px,5vw,80px);align-items:start">
+    <div data-reveal="1" style="display:flex;flex-direction:column;gap:16px">
+      <h2 style="font:600 clamp(34px,3.05vw,44px)/1.15 var(--display),serif;letter-spacing:-0.01em">This is for you if…</h2>
+      <p style="font-size:16px;color:#4F5A65;max-width:26em">Not for you if you already use AI every day. This group is beginners only.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div data-reveal="1" style="display:flex;gap:16px;align-items:flex-start;padding:20px 24px;border-radius:16px;background:#EDE6DA"><span style="flex:none;margin-top:2px;width:26px;height:26px;border:2px solid #1E5A5A;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.75 6 6 9-13.5"></path></svg></span><p>You opened ChatGPT once, got a wall of generic text, and closed it.</p></div>
+      <div data-reveal="2" style="display:flex;gap:16px;align-items:flex-start;padding:20px 24px;border-radius:16px;background:#EDE6DA"><span style="flex:none;margin-top:2px;width:26px;height:26px;border:2px solid #1E5A5A;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.75 6 6 9-13.5"></path></svg></span><p>Your evenings disappear into emails, quotes and scheduling.</p></div>
+      <div data-reveal="3" style="display:flex;gap:16px;align-items:flex-start;padding:20px 24px;border-radius:16px;background:#EDE6DA"><span style="flex:none;margin-top:2px;width:26px;height:26px;border:2px solid #1E5A5A;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.75 6 6 9-13.5"></path></svg></span><p>You'd rather not ask your kids to "do the computer stuff" again.</p></div>
+      <div data-reveal="4" style="display:flex;gap:16px;align-items:flex-start;padding:20px 24px;border-radius:16px;background:#EDE6DA"><span style="flex:none;margin-top:2px;width:26px;height:26px;border:2px solid #1E5A5A;border-radius:6px;display:flex;align-items:center;justify-content:center;background:#fff"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.75 6 6 9-13.5"></path></svg></span><p>You want to know what's safe to type in before you type anything.</p></div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="First win" style="position:relative;overflow:hidden;padding:clamp(64px,6.67vw,96px) clamp(16px,4vw,48px);background:#1E5A5A">
+  <div data-drift="2" style="position:absolute;top:-30%;right:-10%;width:min(900px,160vw);height:min(900px,160vw);border-radius:50%;background:radial-gradient(circle,rgba(224,164,58,0.35),rgba(224,164,58,0) 65%);pointer-events:none"></div>
+  <div data-drift="3" style="position:absolute;bottom:-40%;left:-15%;width:min(800px,150vw);height:min(800px,150vw);border-radius:50%;background:radial-gradient(circle,rgba(124,194,184,0.35),rgba(124,194,184,0) 65%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+    <h2 data-reveal="1" style="font:600 clamp(34px,3.05vw,44px)/1.15 var(--display),serif;letter-spacing:-0.01em;color:#F7F3EC;text-wrap:balance;max-width:16em">Here's what you'll do in your first evening.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:20px;align-items:stretch">
+      <div data-reveal="1" style="border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);border:1px solid rgba(255,255,255,0.28);box-shadow:inset 0 1px 0 rgba(255,255,255,0.3),0 20px 40px rgba(0,0,0,0.12);color:#F7F3EC">
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:32px;height:32px;border-radius:50%;background:#A3461F;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;flex:none">1</span><h3 style="font:700 20px/1.3 var(--body),sans-serif">The message you've been avoiding</h3></div>
+        <div style="background:#F7F3EC;color:#1F2A33;border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:15px;color:#4F5A65"><span style="font-weight:700;color:#1F2A33">From: [Customer]</span><span style="border:1px solid #7A8590;border-radius:999px;padding:1px 10px">Example</span></div>
+          <p>Hi, the team came Thursday but the baseboards in the living room were skipped again. This is the second time. I'm starting to wonder if it's worth it.</p>
+        </div>
+      </div>
+      <div data-reveal="2" style="border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);border:1px solid rgba(255,255,255,0.28);box-shadow:inset 0 1px 0 rgba(255,255,255,0.3),0 20px 40px rgba(0,0,0,0.12);color:#F7F3EC">
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:32px;height:32px;border-radius:50%;background:#A3461F;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;flex:none">2</span><h3 style="font:700 20px/1.3 var(--body),sans-serif">What you type, in plain words</h3></div>
+        <div style="background:#fff;color:#1F2A33;border-radius:16px;padding:20px;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:16px">
+          <p style="font-size:20px;line-height:1.5" aria-label="Apologize without groveling, offer to send someone back to fix it, keep it short."><span data-type="1" aria-hidden="true">Apologize without groveling, offer to send someone back to fix it, keep it short.</span><span data-caret="1" aria-hidden="true" style="display:inline-block;width:2px;height:1.1em;background:#1E5A5A;vertical-align:-0.15em;margin-left:2px"></span></p>
+          <span style="font-size:15px;color:#4F5A65">No special words needed.</span>
+        </div>
+      </div>
+      <div data-reveal="3" style="border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);border:1px solid rgba(255,255,255,0.28);box-shadow:inset 0 1px 0 rgba(255,255,255,0.3),0 20px 40px rgba(0,0,0,0.12);color:#F7F3EC">
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:32px;height:32px;border-radius:50%;background:#E0A43A;color:#1F2A33;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;flex:none">3</span><h3 style="font:700 20px/1.3 var(--body),sans-serif">The reply, then one fix</h3></div>
+        <div role="group" aria-label="Reply version" style="position:relative;display:grid;grid-template-columns:1fr 1fr;border-radius:14px;padding:4px;background:rgba(0,0,0,0.18);border:1px solid rgba(255,255,255,0.2)">
+          <span data-reply-pill="1" style="position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:10px;background:#F7F3EC;box-shadow:0 2px 8px rgba(0,0,0,0.15);transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform:translateX(0)"></span>
+          <button type="button" class="f2" data-reply-btn="first" aria-pressed="true" style="position:relative;height:44px;border:none;border-radius:10px;background:transparent;color:#1E5A5A;font:700 16px/1 var(--body),sans-serif;cursor:pointer;transition:color .3s">First draft</button>
+          <button type="button" class="f2" data-reply-btn="fix" aria-pressed="false" style="position:relative;height:44px;border:none;border-radius:10px;background:transparent;color:#F7F3EC;font:700 16px/1 var(--body),sans-serif;cursor:pointer;transition:color .3s">After one fix</button>
+        </div>
+        <div data-reply="1" aria-live="polite" style="background:#F7F3EC;color:#1F2A33;border-radius:16px;padding:20px;flex:1">
+          <div data-reply-version="first"><p>Dear [Customer], <mark style="background:#F3E2C2;color:#1F2A33;padding:1px 4px;border-radius:4px;box-shadow:inset 0 -2px 0 #E0A43A">We sincerely regret any inconvenience</mark> this may have caused. We value your business and strive to deliver the highest quality of service.</p></div>
+          <div data-reply-version="fix" hidden><p>Hi [Customer], you're right, and I'm sorry. Missing the baseboards twice isn't okay. I can send someone back this week to fix them. Would Wednesday or Friday morning suit you? [Your name]</p></div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:15px;color:#D6E4E1">Example only. In the workshop you'll use a real message from your own inbox, with names taken out.</p>
+  </div>
+</section>
+
+<section data-screen-label="Steps" style="position:relative;overflow:hidden;padding:clamp(64px,6.67vw,96px) clamp(16px,4vw,48px)">
+  <div data-drift="1" style="position:absolute;top:10%;left:-12%;width:min(700px,140vw);height:min(700px,140vw);border-radius:50%;background:radial-gradient(circle,rgba(224,164,58,0.22),rgba(224,164,58,0) 65%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:40px clamp(32px,5vw,80px)">
+    <div data-reveal="1" style="display:flex;flex-direction:column;gap:12px">
+      <p style="align-self:flex-start;color:#A3461F;font-weight:700;font-size:16px;padding:6px 14px;border-radius:999px;background:rgba(163,70,31,0.08)">Session one · Tuesday, 7:00–9:00 p.m. ET</p>
+      <h2 style="font:600 clamp(34px,3.05vw,44px)/1.15 var(--display),serif;letter-spacing:-0.01em">What we'll do together</h2>
+      <p style="color:#4F5A65;font-size:16px;padding-top:8px">Can't make it live? You'll get the recording and the printed guide.</p>
+    </div>
+    <ol data-reveal="2" style="list-style:none;margin:0;padding:12px;display:flex;flex-direction:column;gap:4px;border-radius:28px;background:rgba(255,255,255,0.55);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid rgba(255,255,255,0.85);box-shadow:inset 0 1px 0 rgba(255,255,255,0.95),0 16px 40px rgba(31,42,51,0.08)">
+      <li style="display:flex;gap:20px;padding:20px;border-radius:18px"><span style="width:44px;height:44px;flex:none;border-radius:50%;background:#A3461F;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">1</span><div><p style="font-weight:700;font-size:20px;line-height:1.4">What never to paste in.</p><p>Simple rules that keep your clients' information safe.</p></div></li>
+      <li style="display:flex;gap:20px;padding:20px;border-radius:18px"><span style="width:44px;height:44px;flex:none;border-radius:50%;background:#A3461F;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">2</span><div><p style="font-weight:700;font-size:20px;line-height:1.4">Your first plain-English request.</p><p>No special words. If you can write an email, you can do this.</p></div></li>
+      <li style="display:flex;gap:20px;padding:20px;border-radius:18px;background:#F3E2C2"><span style="position:relative;isolation:isolate;width:44px;height:44px;flex:none;border-radius:50%;background:#E0A43A;color:#1F2A33;font-weight:700;display:flex;align-items:center;justify-content:center"><span data-pulse="2" style="position:absolute;inset:0;border-radius:50%;background:#E0A43A;z-index:-1"></span>3</span><div><p style="font-weight:700;font-size:20px;line-height:1.4">The message you've been avoiding.</p><p>You'll answer a real customer email, in your own voice, before we finish.</p></div></li>
+      <li style="display:flex;gap:20px;padding:20px;border-radius:18px"><span style="width:44px;height:44px;flex:none;border-radius:50%;background:#A3461F;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">4</span><div><p style="font-weight:700;font-size:20px;line-height:1.4">Checking its work.</p><p>How to catch mistakes and make it sound like you, not a robot.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section data-screen-label="Teacher" style="padding:0 clamp(16px,4vw,48px) clamp(64px,6.67vw,96px)">
+  <div data-reveal="1" style="max-width:1120px;margin:0 auto;background:#F3E2C2;border-radius:28px;padding:clamp(28px,4vw,56px);display:flex;flex-wrap:wrap;gap:32px 48px;align-items:center">
+    <div style="width:clamp(120px,14vw,200px);aspect-ratio:1;flex:none;border-radius:50%;background:repeating-linear-gradient(135deg,#EBD5AE 0 8px,#F3E2C2 8px 16px);display:flex;align-items:center;justify-content:center;text-align:center;font:13px/1.3 ui-monospace,Menlo,monospace;color:#4F5A65;box-shadow:0 0 0 10px rgba(255,255,255,0.4);position:relative;overflow:hidden">Photo:<br>teacher<img src="/images/jonathan.jpg" width="600" height="400" loading="lazy" alt="Jonathan, your teacher" onerror="this.style.display='none'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%"></div>
+    <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:12px;max-width:620px">
+      <p style="color:#A3461F;font-weight:700;font-size:16px">Your teacher</p>
+      <h3 style="font:600 clamp(27px,2.4vw,34px)/1.2 var(--display),serif">Hi, I'm Jonathan.</h3>
+      <p>I ran a small business for years, so I know what it's like to answer emails at the kitchen table long after closing time. When I first tried AI, I got the same wall of generic text you did and nearly gave up. Now I teach beginners only, in small groups, using the real messages and tasks from your own business, one plain-English step at a time.</p>
+      <p style="font:600 20px/1.4 var(--display),serif;color:#1F2A33;padding-top:8px">"If you get lost, that's my fault, not yours."</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Safe" style="padding:0 clamp(16px,4vw,48px) clamp(64px,6.67vw,96px)">
+  <div style="max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+    <h2 data-reveal="1" style="font:600 clamp(34px,3.05vw,44px)/1.15 var(--display),serif;letter-spacing:-0.01em">Your clients' information stays safe.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:20px">
+      <div data-reveal="1" style="display:flex;flex-direction:column;gap:16px;padding:28px;border-radius:24px;border:1px solid #D9D0C1;background:#fff"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"></path></svg><p>We start with what never to paste in: names, addresses, card numbers, passwords.</p></div>
+      <div data-reveal="2" style="display:flex;flex-direction:column;gap:16px;padding:28px;border-radius:24px;border:1px solid #D9D0C1;background:#fff"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"></path></svg><p>We show you the privacy settings in whichever AI tool you use, step by step.</p></div>
+      <div data-reveal="3" style="display:flex;flex-direction:column;gap:16px;padding:28px;border-radius:24px;border:1px solid #D9D0C1;background:#fff"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"></path><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path></svg><p>You stay in charge: we teach you to check every reply before it goes anywhere.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="price" data-screen-label="Price" style="position:relative;overflow:hidden;padding:clamp(64px,6.67vw,96px) clamp(16px,4vw,48px);background:#EDE6DA">
+  <div data-drift="2" style="position:absolute;top:50%;left:50%;width:min(760px,150vw);height:min(760px,150vw);margin:calc(min(760px,150vw) / -2) 0 0 calc(min(760px,150vw) / -2);border-radius:50%;background:radial-gradient(circle,rgba(224,164,58,0.4),rgba(224,164,58,0) 62%);pointer-events:none"></div>
+  <div data-reveal="1" style="position:relative;max-width:460px;margin:0 auto;border-radius:28px;padding:clamp(28px,2.8vw,40px);display:flex;flex-direction:column;gap:20px;background:rgba(255,255,255,0.6);backdrop-filter:blur(28px) saturate(170%);-webkit-backdrop-filter:blur(28px) saturate(170%);border:1px solid rgba(255,255,255,0.9);box-shadow:inset 0 1px 0 rgba(255,255,255,1),0 24px 60px rgba(31,42,51,0.12)">
+    <div style="text-align:center;display:flex;flex-direction:column;gap:8px">
+      <h2 style="color:#A3461F;font:700 16px/1.6 var(--body),sans-serif">AI Basics for Business Owners</h2>
+      <p style="font:600 64px/1 var(--display),serif;letter-spacing:-0.02em">$197</p>
+      <p style="color:#4F5A65;font-size:16px">Two live evenings · small group of 8–12</p>
+    </div>
+    <ul style="list-style:none;margin:0;padding:20px 0 0;border-top:1px solid rgba(31,42,51,0.12);display:flex;flex-direction:column;gap:12px">
+      <li style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:3px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.75 6 6 9-13.5"></path></svg>Two 2-hour live sessions, beginners only</li>
+      <li style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:3px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.75 6 6 9-13.5"></path></svg>A printed step-by-step guide for your fridge</li>
+      <li style="display:flex;gap:12px;align-items:flex-start"><svg style="flex:none;margin-top:3px" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.75 6 6 9-13.5"></path></svg>Recordings, in case life happens</li>
+    </ul>
+    <!-- TODO: point "Save my seat" at your checkout link (Stripe, etc.). -->
+    <a class="h5 f1" href="#" data-todo="checkout" style="display:flex;align-items:center;justify-content:center;height:56px;border-radius:12px;background:#1E5A5A;color:#fff;font:700 18px/1 var(--body),sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 8px 20px rgba(30,90,90,0.25);transition:transform .2s,background .2s">Save my seat</a>
+    <div style="background:#F3E2C2;border-radius:16px;padding:20px;display:flex;gap:14px;align-items:flex-start">
+      <span style="width:12px;height:12px;border-radius:50%;background:#E0A43A;flex:none;margin-top:8px"></span>
+      <p style="font-size:16px;line-height:1.55"><strong>The "first win" promise:</strong> If you don't leave session one with a real task done, in your own business, tell me and I'll refund you in full.</p>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="FAQ" style="padding:clamp(64px,6.67vw,96px) clamp(16px,4vw,48px)">
+  <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:32px clamp(32px,5vw,80px);align-items:start">
+    <h2 data-reveal="1" style="font:600 clamp(34px,3.05vw,44px)/1.15 var(--display),serif;letter-spacing:-0.01em">Questions people ask first</h2>
+    <div style="grid-column:span 1;display:flex;flex-direction:column;gap:10px">
+      <!-- TODO: fill in the [Answer: ...] placeholders below. -->
+<div data-faq="1" style="border-radius:18px;background:#fff;border:1px solid #D9D0C1;transition:background .3s">
+          <button type="button" class="f1" id="faq-q1" aria-expanded="true" aria-controls="faq-a1" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:none;border:none;text-align:left;cursor:pointer;color:#1F2A33;font:700 18px/1.45 var(--body),sans-serif;border-radius:18px">
+            <span>I'm not a tech person. Will I be the slowest one there?</span>
+            <span data-faq-icon="1" aria-hidden="true" style="flex:none;width:32px;height:32px;border-radius:50%;background:#1E5A5A;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform:rotate(45deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span>
+          </button>
+          <p id="faq-a1" role="region" aria-labelledby="faq-q1" data-faq-a="1" style="padding:0 clamp(20px,5vw,64px) 22px 20px">This group is beginners only, and nobody gets called on. If you can write an email, you can do everything we cover.</p>
+        </div>
+        <div data-faq="1" style="border-radius:18px;background:rgba(255,255,255,0.35);border:1px solid #D9D0C1;transition:background .3s">
+          <button type="button" class="f1" id="faq-q2" aria-expanded="false" aria-controls="faq-a2" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:none;border:none;text-align:left;cursor:pointer;color:#1F2A33;font:700 18px/1.45 var(--body),sans-serif;border-radius:18px">
+            <span>Why pay when there are free videos and library classes?</span>
+            <span data-faq-icon="1" aria-hidden="true" style="flex:none;width:32px;height:32px;border-radius:50%;background:#1E5A5A;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform:rotate(0deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span>
+          </button>
+          <p id="faq-a2" role="region" aria-labelledby="faq-q2" data-faq-a="1" style="padding:0 clamp(20px,5vw,64px) 22px 20px" hidden>Free classes teach AI for everyday life. This one uses your business: your customer emails, your quotes, your posts.</p>
+        </div>
+        <div data-faq="1" style="border-radius:18px;background:rgba(255,255,255,0.35);border:1px solid #D9D0C1;transition:background .3s">
+          <button type="button" class="f1" id="faq-q3" aria-expanded="false" aria-controls="faq-a3" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:none;border:none;text-align:left;cursor:pointer;color:#1F2A33;font:700 18px/1.45 var(--body),sans-serif;border-radius:18px">
+            <span>Is it safe? I can't put client information in there.</span>
+            <span data-faq-icon="1" aria-hidden="true" style="flex:none;width:32px;height:32px;border-radius:50%;background:#1E5A5A;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform:rotate(0deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span>
+          </button>
+          <p id="faq-a3" role="region" aria-labelledby="faq-q3" data-faq-a="1" style="padding:0 clamp(20px,5vw,64px) 22px 20px" hidden>Session one starts with what never to paste in, so you can use it without risking your clients.</p>
+        </div>
+        <div data-faq="1" style="border-radius:18px;background:rgba(255,255,255,0.35);border:1px solid #D9D0C1;transition:background .3s">
+          <button type="button" class="f1" id="faq-q4" aria-expanded="false" aria-controls="faq-a4" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:none;border:none;text-align:left;cursor:pointer;color:#1F2A33;font:700 18px/1.45 var(--body),sans-serif;border-radius:18px">
+            <span>What do I need to join?</span>
+            <span data-faq-icon="1" aria-hidden="true" style="flex:none;width:32px;height:32px;border-radius:50%;background:#1E5A5A;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform:rotate(0deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span>
+          </button>
+          <p id="faq-a4" role="region" aria-labelledby="faq-q4" data-faq-a="1" style="padding:0 clamp(20px,5vw,64px) 22px 20px" hidden>[Answer: device, internet connection, and which AI tool account to set up.]</p>
+        </div>
+        <div data-faq="1" style="border-radius:18px;background:rgba(255,255,255,0.35);border:1px solid #D9D0C1;transition:background .3s">
+          <button type="button" class="f1" id="faq-q5" aria-expanded="false" aria-controls="faq-a5" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:none;border:none;text-align:left;cursor:pointer;color:#1F2A33;font:700 18px/1.45 var(--body),sans-serif;border-radius:18px">
+            <span>What if I miss a session?</span>
+            <span data-faq-icon="1" aria-hidden="true" style="flex:none;width:32px;height:32px;border-radius:50%;background:#1E5A5A;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform:rotate(0deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span>
+          </button>
+          <p id="faq-a5" role="region" aria-labelledby="faq-q5" data-faq-a="1" style="padding:0 clamp(20px,5vw,64px) 22px 20px" hidden>[Answer: recording and printed guide are sent to everyone.]</p>
+        </div>
+        <div data-faq="1" style="border-radius:18px;background:rgba(255,255,255,0.35);border:1px solid #D9D0C1;transition:background .3s">
+          <button type="button" class="f1" id="faq-q6" aria-expanded="false" aria-controls="faq-a6" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:none;border:none;text-align:left;cursor:pointer;color:#1F2A33;font:700 18px/1.45 var(--body),sans-serif;border-radius:18px">
+            <span>What's the refund policy?</span>
+            <span data-faq-icon="1" aria-hidden="true" style="flex:none;width:32px;height:32px;border-radius:50%;background:#1E5A5A;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform:rotate(0deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span>
+          </button>
+          <p id="faq-a6" role="region" aria-labelledby="faq-q6" data-faq-a="1" style="padding:0 clamp(20px,5vw,64px) 22px 20px" hidden>[Answer: restate the first-win promise and how to ask for a refund.]</p>
+        </div>
+        <div data-faq="1" style="border-radius:18px;background:rgba(255,255,255,0.35);border:1px solid #D9D0C1;transition:background .3s">
+          <button type="button" class="f1" id="faq-q7" aria-expanded="false" aria-controls="faq-a7" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;background:none;border:none;text-align:left;cursor:pointer;color:#1F2A33;font:700 18px/1.45 var(--body),sans-serif;border-radius:18px">
+            <span>Is this for my kind of business?</span>
+            <span data-faq-icon="1" aria-hidden="true" style="flex:none;width:32px;height:32px;border-radius:50%;background:#1E5A5A;display:flex;align-items:center;justify-content:center;transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform:rotate(0deg)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span>
+          </button>
+          <p id="faq-a7" role="region" aria-labelledby="faq-q7" data-faq-a="1" style="padding:0 clamp(20px,5vw,64px) 22px 20px" hidden>[Answer: examples of business types that have joined.]</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Final" style="position:relative;overflow:hidden;background:#EDE6DA;padding:clamp(150px,13vw,190px) clamp(16px,4vw,48px) clamp(110px,10vw,150px);text-align:center">
+  <div style="position:absolute;top:0;left:50%;width:2px;height:clamp(40px,4vw,60px);background:#1F2A33;opacity:0.35"></div>
+  <div data-swing="2" aria-hidden="true" style="position:absolute;top:clamp(40px,4vw,60px);left:calc(50% - clamp(60px,6vw,84px) + 1px);width:clamp(120px,12vw,168px);transform-origin:50% -60px">
+    <div style="width:100%;aspect-ratio:2/1;background:#E0A43A;border-radius:999px 999px 0 0;box-shadow:inset 0 -8px 0 rgba(0,0,0,0.08)"></div>
+    <div data-glow="2" style="position:absolute;top:50%;left:-200%;width:500%;height:520px;background:radial-gradient(ellipse at 50% 0%,rgba(255,214,140,0.6),rgba(255,214,140,0) 65%);pointer-events:none"></div>
+  </div>
+  <div data-reveal="1" style="position:relative;max-width:680px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px;padding:clamp(32px,4vw,48px) clamp(20px,4vw,48px);border-radius:28px;background:rgba(255,255,255,0.45);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);border:1px solid rgba(255,255,255,0.85);box-shadow:inset 0 1px 0 rgba(255,255,255,0.95),0 20px 50px rgba(31,42,51,0.08)">
+    <h2 style="font:600 clamp(36px,3.6vw,52px)/1.1 var(--display),serif;letter-spacing:-0.02em">Start with one message.</h2>
+    <p style="font-size:20px">Join the free 30-minute taster and see if this is for you.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%;padding-top:12px">
+      <a class="h5 f1" href="/thank-you" style="flex:1 1 260px;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 24px;border-radius:12px;background:#1E5A5A;color:#fff;font:700 18px/1 var(--body),sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 8px 20px rgba(30,90,90,0.25);transition:transform .2s,background .2s">Try the free 30-minute taster</a>
+      <a class="h6 f1" href="#price" style="flex:1 1 200px;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 24px;border-radius:12px;border:2px solid #1E5A5A;background:rgba(255,255,255,0.5);color:#1E5A5A;font:700 18px/1 var(--body),sans-serif;text-decoration:none;transition:transform .2s,background .2s">Save my seat ($197)</a>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:min(820px,88%);height:18px;background:#1E5A5A;border-radius:8px 8px 0 0"></div>
+</section>
+
 </main>
 
-<footer class="site-footer">
-  <div class="site-footer__inner">
-    <span>Questions? <a href="mailto:hello@kitchentable.ai">hello@kitchentable.ai</a> · A real person reads every message</span>
-    <span>© 2026 Kitchen Table AI</span>
+<footer style="background:#F7F3EC;padding:40px clamp(16px,4vw,48px)">
+  <div style="max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:24px 40px;font-size:16px;color:#4F5A65">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <span style="display:flex;align-items:center;gap:8px;color:#1E5A5A;font:600 20px/1 var(--display),serif"><span style="width:10px;height:10px;border-radius:50%;background:#E0A43A"></span>Kitchen Table AI</span>
+      <span>No jargon. No hype. No dumb questions.</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <a href="mailto:hello@kitchentable.ai" style="font-weight:700">hello@kitchentable.ai</a>
+      <span>A real person reads every message</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px 24px">
+      <!-- TODO: add Privacy, Terms and Refund policy pages. -->
+      <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refund policy</a><span>© 2026 Kitchen Table AI</span>
+    </div>
   </div>
 </footer>
 
 <script>
-  (function () {
-    var form = document.getElementById('task-form');
-    var thanks = document.getElementById('task-thanks');
-    var error = document.getElementById('task-error');
-    var button = form.querySelector('button[type="submit"]');
+(function () {
+  var q = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
 
-    function showThanks() {
-      form.hidden = true;
-      thanks.hidden = false;
-    }
-
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-      error.hidden = true;
-
-      // Nothing typed: just say thanks, no empty submission.
-      if (!form.task.value.trim()) { showThanks(); return; }
-
-      button.disabled = true;
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        showThanks();
-      }).catch(function () {
-        error.hidden = false;
-        button.disabled = false;
-      });
+  /* "First draft" / "After one fix" toggle */
+  var pill = document.querySelector('[data-reply-pill]');
+  var reply = document.querySelector('[data-reply]');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var showFix = false;
+  function setReply(fix) {
+    if (fix === showFix) return;
+    showFix = fix;
+    pill.style.transform = fix ? 'translateX(100%)' : 'translateX(0)';
+    q('[data-reply-btn]').forEach(function (b) {
+      var on = (b.dataset.replyBtn === 'fix') === fix;
+      b.setAttribute('aria-pressed', String(on));
+      b.style.color = on ? '#1E5A5A' : '#F7F3EC';
     });
-  })();
+    q('[data-reply-version]').forEach(function (v) { v.hidden = (v.dataset.replyVersion === 'fix') !== fix; });
+    if (!reduce && reply.animate) {
+      reply.animate([{ opacity: 0.2, transform: 'translateY(8px)', filter: 'blur(4px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }],
+        { duration: 500, easing: 'cubic-bezier(.2,.7,.2,1)' });
+    }
+  }
+  q('[data-reply-btn]').forEach(function (b) {
+    b.addEventListener('click', function () { setReply(b.dataset.replyBtn === 'fix'); });
+  });
+
+  /* FAQ accordion: one open at a time */
+  var faqs = q('[data-faq]');
+  function setFaq(item, open) {
+    item.style.background = open ? '#fff' : 'rgba(255,255,255,0.35)';
+    item.querySelector('button').setAttribute('aria-expanded', String(open));
+    item.querySelector('[data-faq-icon]').style.transform = open ? 'rotate(45deg)' : 'rotate(0deg)';
+    item.querySelector('[data-faq-a]').hidden = !open;
+  }
+  faqs.forEach(function (item) {
+    item.querySelector('button').addEventListener('click', function () {
+      var wasOpen = this.getAttribute('aria-expanded') === 'true';
+      faqs.forEach(function (other) { setFaq(other, false); });
+      if (!wasOpen) setFaq(item, true);
+    });
+  });
+
+  /* Motion (skipped when the visitor prefers reduced motion) */
+  var showAll = function () { q('[data-reveal]').forEach(function (el) { el.style.opacity = ''; }); };
+  window.addEventListener('beforeprint', showAll);
+  if (reduce || !document.body.animate || !('IntersectionObserver' in window)) return;
+
+  var ease = 'cubic-bezier(.2,.7,.2,1)';
+  q('[data-in]').forEach(function (el) {
+    el.animate([{ opacity: 0, transform: 'translateY(28px)', filter: 'blur(8px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }],
+      { duration: 1000, delay: 120 * +el.dataset.in, easing: ease, fill: 'backwards' });
+  });
+  q('[data-swing]').forEach(function (el, i) {
+    el.animate([{ transform: 'rotate(-2.5deg)' }, { transform: 'rotate(2.5deg)' }],
+      { duration: 4200 + i * 700, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  });
+  q('[data-glow]').forEach(function (el) {
+    el.animate([{ opacity: 0.75 }, { opacity: 1 }], { duration: 2600, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  });
+  q('[data-drift]').forEach(function (el) {
+    var k = +el.dataset.drift;
+    el.animate([{ transform: 'translate(0,0) scale(1)' },
+      { transform: 'translate(' + (k % 2 ? 60 : -50) + 'px,' + (k === 2 ? -40 : 50) + 'px) scale(' + (1 + k * 0.04) + ')' }],
+      { duration: 14000 + k * 3000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  });
+  q('[data-float]').forEach(function (el) {
+    el.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(-10px)' }],
+      { duration: 3800, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out', delay: 1200 });
+  });
+  q('[data-pulse]').forEach(function (el) {
+    el.animate([{ transform: 'scale(1)', opacity: 0.7 }, { transform: 'scale(2.4)', opacity: 0 }], { duration: 1800, iterations: Infinity, easing: 'ease-out' });
+  });
+  q('[data-caret]').forEach(function (el) {
+    el.animate([{ opacity: 1 }, { opacity: 1, offset: 0.5 }, { opacity: 0, offset: 0.51 }, { opacity: 0 }], { duration: 1000, iterations: Infinity });
+  });
+
+  /* Typewriter for "What you type, in plain words" */
+  var typeEl = document.querySelector('[data-type]');
+  var typed = false;
+  function typeOut(el) {
+    typed = true;
+    var full = el.textContent, i = 0;
+    el.textContent = '';
+    var t = setInterval(function () { i += 1; el.textContent = full.slice(0, i); if (i >= full.length) clearInterval(t); }, 32);
+  }
+
+  /* Scroll reveals */
+  function reveal(el) {
+    el.style.opacity = '';
+    el.animate([{ opacity: 0, transform: 'translateY(32px) scale(.98)' }, { opacity: 1, transform: 'none' }],
+      { duration: 900, delay: 90 * ((+el.dataset.reveal || 1) - 1), easing: ease, fill: 'backwards' });
+    if (typeEl && el.contains(typeEl) && !typed) typeOut(typeEl);
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); reveal(e.target); } });
+  }, { threshold: 0.15 });
+  q('[data-reveal]').forEach(function (el) {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.9) return;
+    el.style.opacity = '0';
+    io.observe(el);
+  });
+})();
 </script>
 </body>
 </html>

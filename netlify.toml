@@ -12,3 +12,9 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Clean URL for the thank-you page (Netlify usually does this already; explicit is safer).
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you.html"
+  status = 200

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>You're in | Kitchen Table AI</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Your spot in the free 30-minute Kitchen Table AI taster is saved.">
+  <meta name="theme-color" content="#F7F3EC">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='%23E0A43A'/%3E%3C/svg%3E">
+  <link rel="preload" href="/fonts/atkinson-hyperlegible-next-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <style>
+    :root {
+      --cream: #F7F3EC;
+      --sand: #EDE6DA;
+      --wheat: #F3E2C2;
+      --line: #D9D0C1;
+      --ink: #1F2A33;
+      --muted: #4F5A65;
+      --teal: #1E5A5A;
+      --teal-dark: #154242;
+      --teal-tint: rgba(30, 90, 90, 0.07);
+      --amber: #E0A43A;
+      --rust: #A3461F;
+      --green: #2E7D4F;
+      --error: #A3261F;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Atkinson Hyperlegible Next', system-ui, -apple-system, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-synthesis: none; font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, p { margin: 0; }
+    a { color: var(--teal); }
+    a:hover { color: var(--teal-dark); }
+    :focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+    .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+    /* Header */
+    .site-header { border-bottom: 1px solid var(--line); height: clamp(56px, 4.44vw, 64px); padding: 0 clamp(16px, 4vw, 48px); }
+    .site-header__inner { max-width: 1120px; height: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { white-space: nowrap; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--teal); font: 600 clamp(19px, 1.6vw, 24px)/1 var(--serif); }
+    .brand__dot { width: 12px; height: 12px; border-radius: 50%; background: var(--amber); }
+    .back-link { white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 14px; border-radius: 12px; color: var(--teal); font-weight: 700; font-size: 16px; text-decoration: none; }
+    .back-link:hover { background: var(--teal-tint); color: var(--teal-dark); }
+
+    /* Main */
+    main { position: relative; padding: clamp(56px, 6.67vw, 96px) clamp(16px, 4vw, 48px) clamp(80px, 8.9vw, 128px); }
+    .sun { position: absolute; top: 0; right: clamp(24px, 12vw, 200px); width: clamp(72px, 7vw, 104px); height: clamp(36px, 3.5vw, 52px); background: var(--amber); border-radius: 0 0 999px 999px; }
+    .stack { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+    .intro { display: flex; flex-direction: column; gap: 16px; }
+    .status { display: flex; align-items: center; gap: 10px; color: var(--green); font-weight: 700; font-size: 16px; }
+    h1 { font: 600 clamp(34px, 5vw, 44px)/1.12 var(--serif); text-wrap: balance; }
+
+    .event { background: var(--wheat); border-radius: 20px; padding: 24px 28px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; }
+    .event__body { flex: 1 1 240px; }
+    .event__label { font-size: 15px; color: var(--muted); font-weight: 700; }
+    .event__when { font-size: 20px; font-weight: 700; }
+
+    .steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; background: #fff; border-radius: 20px; box-shadow: 0 1px 2px rgba(31, 42, 51, 0.08), 0 6px 16px rgba(31, 42, 51, 0.06); }
+    .step { display: flex; gap: 20px; padding: 28px; }
+    .step + .step { border-top: 1px solid var(--line); }
+    .step__num { width: 44px; height: 44px; flex: none; border-radius: 50%; background: var(--rust); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .step__num--amber { background: var(--amber); color: var(--ink); }
+    .step__body { padding-top: 8px; display: flex; flex-direction: column; gap: 16px; flex: 1; }
+    .step__title { font-weight: 700; font-size: 20px; line-height: 1.4; }
+    .cal-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0 20px; border-radius: 12px; font: 700 18px/1 var(--sans); text-decoration: none; cursor: pointer; }
+    .btn--outline { flex: 1 1 160px; border: 2px solid var(--teal); color: var(--teal); background: transparent; }
+    .btn--outline:hover { background: var(--teal-tint); }
+    .btn--solid { align-self: flex-start; padding: 0 32px; border: none; background: var(--teal); color: #fff; }
+    .btn--solid:hover { background: var(--teal-dark); }
+    .btn[disabled] { opacity: 0.6; cursor: progress; }
+
+    .ask { background: var(--sand); border-radius: 20px; padding: clamp(24px, 2.8vw, 40px); display: flex; flex-direction: column; gap: 12px; }
+    .ask label { font-weight: 700; font-size: 18px; }
+    .ask label span { font-weight: 400; color: var(--muted); }
+    .ask form { display: flex; flex-direction: column; gap: 16px; }
+    textarea { width: 100%; border: 2px solid #7A8590; border-radius: 8px; padding: 14px 16px; font: 18px/1.5 var(--sans); color: var(--ink); background: #fff; resize: vertical; }
+    .ask__thanks { display: flex; align-items: center; gap: 10px; color: var(--green); font-weight: 700; }
+    .ask__error { color: var(--error); font-weight: 700; font-size: 16px; }
+    [hidden] { display: none !important; }
+
+    /* Footer */
+    .site-footer { border-top: 1px solid var(--line); padding: 32px clamp(16px, 4vw, 48px); font-size: 16px; color: var(--muted); }
+    .site-footer__inner { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; }
+
+    @media (max-width: 480px) {
+      .back-link__extra { display: none; }
+      .back-link { padding: 0 8px; }
+      .step { gap: 16px; padding: 22px 18px; }
+      .event { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/"><span class="brand__dot" aria-hidden="true"></span>Kitchen Table AI</a>
+    <a class="back-link" href="/">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.75 19.5 8.25 12l7.5-7.5"/></svg>
+      Back<span class="back-link__extra">&nbsp;to the page</span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <div class="sun" aria-hidden="true"></div>
+  <div class="stack">
+    <div class="intro">
+      <p class="status">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+        Success: your spot in the taster is saved
+      </p>
+      <h1>You're in. See you at the table.</h1>
+    </div>
+
+    <div class="event">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+      <div class="event__body">
+        <p class="event__label">Free 30-minute taster</p>
+        <!-- TODO: replace the date placeholder once the session date is set. -->
+        <p class="event__when">[Day, Month Date] · 7:00–7:30 p.m. Eastern Time (ET)</p>
+      </div>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <span class="step__num" aria-hidden="true">1</span>
+        <div class="step__body"><p class="step__title">Check your inbox for the link.</p></div>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">2</span>
+        <div class="step__body">
+          <p class="step__title">Add it to your calendar.</p>
+          <!-- TODO: point these at a real .ics file and Google Calendar link once the date is set. -->
+          <div class="cal-buttons">
+            <a class="btn btn--outline" href="#">Apple Calendar</a>
+            <a class="btn btn--outline" href="#">Google Calendar</a>
+          </div>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__num step__num--amber" aria-hidden="true">3</span>
+        <div class="step__body"><p class="step__title">Pick the one message you'd like help with.</p></div>
+      </li>
+    </ol>
+
+    <div class="ask">
+      <!-- Netlify Forms picks this form up at deploy time; submissions appear under Forms in the Netlify dashboard. -->
+      <form id="task-form" name="taster-task" method="POST" action="/" data-netlify="true" netlify-honeypot="company">
+        <input type="hidden" name="form-name" value="taster-task">
+        <p class="visually-hidden"><label>Leave this empty: <input name="company" tabindex="-1" autocomplete="off"></label></p>
+        <label for="task">What's one task you'd love off your plate? <span>(optional)</span></label>
+        <textarea id="task" name="task" rows="4" placeholder="For example: replying to quote requests"></textarea>
+        <p class="ask__error" id="task-error" role="alert" hidden>Sorry, that didn't send. Please try again, or email us at hello@kitchentable.ai.</p>
+        <button class="btn btn--solid" type="submit">Send</button>
+      </form>
+      <p class="ask__thanks" id="task-thanks" role="status" hidden>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+        Thanks. I'll keep it in mind for the taster.
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>Questions? <a href="mailto:hello@kitchentable.ai">hello@kitchentable.ai</a> · A real person reads every message</span>
+    <span>© 2026 Kitchen Table AI</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('task-form');
+    var thanks = document.getElementById('task-thanks');
+    var error = document.getElementById('task-error');
+    var button = form.querySelector('button[type="submit"]');
+
+    function showThanks() {
+      form.hidden = true;
+      thanks.hidden = false;
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      error.hidden = true;
+
+      // Nothing typed: just say thanks, no empty submission.
+      if (!form.task.value.trim()) { showThanks(); return; }
+
+      button.disabled = true;
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        showThanks();
+      }).catch(function () {
+        error.hidden = false;
+        button.disabled = false;
+      });
+    });
+  })();
+</script>
+</body>
+</html>
