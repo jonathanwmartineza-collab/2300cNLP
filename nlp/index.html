@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NLP Lab | How computers understand words | Kitchen Table AI</title>
+  <meta name="description" content="An interactive lesson on Natural Language Processing and word embeddings, powered by Google's real pretrained word2vec model running in your browser.">
+  <meta name="theme-color" content="#F7F3EC">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='%23E0A43A'/%3E%3C/svg%3E">
+  <link rel="preload" href="/fonts/atkinson-hyperlegible-next-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/dm-serif-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+</head>
+<body>
+<a class="skip" href="#step1">Skip to the lesson</a>
+
+<div class="top">
+  <header class="bar" role="banner">
+    <a class="brand" href="/"><span class="dot" aria-hidden="true"></span>Kitchen Table AI</a>
+    <span class="page-label">NLP Lab</span>
+    <button class="btn btn-ghost btn-sm" id="presentBtn" type="button" aria-pressed="false" title="Present mode (P)">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></svg>
+      <span>Present</span>
+    </button>
+  </header>
+  <nav class="steps" aria-label="Lesson steps">
+    <ol>
+      <li><a href="#step1" data-step="1"><b>1</b><span>Words → numbers</span></a></li>
+      <li><a href="#step2" data-step="2"><b>2</b><span>How it learns</span></a></li>
+      <li><a href="#step3" data-step="3"><b>3</b><span>Word map</span></a></li>
+      <li><a href="#step4" data-step="4"><b>4</b><span>3D galaxy</span></a></li>
+      <li><a href="#step5" data-step="5"><b>5</b><span>Word math</span></a></li>
+      <li><a href="#step6" data-step="6"><b>6</b><span>Play</span></a></li>
+    </ol>
+    <div class="steps-progress" aria-hidden="true"><i id="stepsFill"></i></div>
+  </nav>
+</div>
+
+<button class="present-exit btn btn-ghost btn-sm" id="presentExit" type="button" hidden>Exit present mode (Esc)</button>
+
+<main id="main">
+
+  <!-- 0. HERO -->
+  <section class="hero slide" id="intro" aria-labelledby="heroTitle">
+    <div class="glow g1" aria-hidden="true"></div>
+    <div class="glow g2" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pip" aria-hidden="true"></span>An interactive lesson in NLP</p>
+        <h1 id="heroTitle">How does a computer understand words?</h1>
+        <p class="lede"><strong>NLP</strong> means <strong>Natural Language Processing</strong>: teaching computers to work with human language.</p>
+        <p class="small">Everything here uses a <strong>real</strong> model: Google's pretrained <em>word2vec</em> (learned from Google News, 300 numbers per word), trimmed to about <span id="vocabCount">8,000</span> words so it runs right in your browser.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="#step1" id="startBtn">Start the lesson <span aria-hidden="true">→</span></a>
+          <div class="loader" id="loader" role="status" aria-live="polite">
+            <div class="loader-track"><i id="loaderFill"></i></div>
+            <span id="loaderText">Loading the model…</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 360" class="constellation">
+          <g class="lines">
+            <line x1="90" y1="80" x2="190" y2="60"/><line x1="90" y1="80" x2="120" y2="170"/><line x1="190" y1="60" x2="220" y2="150"/><line x1="120" y1="170" x2="220" y2="150"/>
+            <line x1="300" y1="230" x2="360" y2="280"/><line x1="300" y1="230" x2="250" y2="300"/><line x1="360" y1="280" x2="250" y2="300"/>
+            <line x1="320" y1="90" x2="380" y2="140"/>
+          </g>
+          <g class="stars">
+            <g class="s a"><circle cx="90" cy="80" r="9"/><text x="90" y="62">king</text></g>
+            <g class="s a"><circle cx="190" cy="60" r="9"/><text x="190" y="42">queen</text></g>
+            <g class="s t"><circle cx="120" cy="170" r="9"/><text x="120" y="198">man</text></g>
+            <g class="s t"><circle cx="220" cy="150" r="9"/><text x="220" y="178">woman</text></g>
+            <g class="s r"><circle cx="300" cy="230" r="8"/><text x="300" y="214">banana</text></g>
+            <g class="s r"><circle cx="360" cy="280" r="8"/><text x="372" y="308">apple</text></g>
+            <g class="s r"><circle cx="250" cy="300" r="8"/><text x="236" y="330">mango</text></g>
+            <g class="s g"><circle cx="320" cy="90" r="8"/><text x="320" y="74">Paris</text></g>
+            <g class="s g"><circle cx="380" cy="140" r="8"/><text x="380" y="124">France</text></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. WORDS -> NUMBERS -->
+  <section class="lesson slide" id="step1" aria-labelledby="t1">
+    <div class="wrap">
+      <header class="lesson-head">
+        <p class="kicker">Step 1</p>
+        <h2 id="t1">Words become numbers</h2>
+        <p class="idea">The model gives every word a list of 300 numbers. Each colored stripe below is one number.</p>
+      </header>
+      <div class="card">
+        <div class="chips" id="barcodePresets" aria-label="Try these word sets"></div>
+        <div class="barcodes" id="barcodes"></div>
+        <div class="scale-key" aria-hidden="true"><span>negative</span><i></i><span>positive</span></div>
+        <p class="hint">Hover or touch a stripe to see its number. <strong>Look:</strong> similar words get similar patterns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. HOW IT LEARNS -->
+  <section class="lesson slide" id="step2" aria-labelledby="t2">
+    <div class="wrap">
+      <header class="lesson-head">
+        <p class="kicker">Step 2</p>
+        <h2 id="t2">How it learns: the company a word keeps</h2>
+        <p class="idea">“You shall know a word by the company it keeps.” word2vec reads billions of sentences and nudges each word's numbers so it can guess its neighbors.</p>
+      </header>
+      <div class="card">
+        <div class="chips" id="sentencePicker" aria-label="Pick a sentence"></div>
+        <div class="sentence" id="sentence" aria-hidden="true"></div>
+        <div class="window-controls">
+          <button class="btn btn-primary" id="winPlay" type="button" aria-pressed="false"><span>Play</span></button>
+          <button class="btn btn-ghost" id="winStep" type="button">Step</button>
+          <button class="btn btn-ghost" id="winReset" type="button">Reset</button>
+          <label class="slider">Window size: <b id="winSizeOut">±2</b>
+            <input type="range" id="winSize" min="1" max="4" step="1" value="2">
+          </label>
+        </div>
+        <div class="pairs-box">
+          <p class="pairs-title"><span class="tag center">center word</span> → <span class="tag ctx">context word</span> training pairs: <b id="pairCount">0</b></p>
+          <ul class="pairs" id="pairs" aria-live="polite" aria-label="Training pairs"></ul>
+        </div>
+        <p class="hint">No training happens here. This animation shows the idea: words that appear in similar company end up with similar numbers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 2D MAP -->
+  <section class="lesson slide" id="step3" aria-labelledby="t3">
+    <div class="wrap">
+      <header class="lesson-head">
+        <p class="kicker">Step 3</p>
+        <h2 id="t3">Meaning is a position on a map</h2>
+        <p class="idea">Words with similar meanings land close together.</p>
+      </header>
+      <div class="card">
+        <div class="map-top">
+          <div class="chips" id="scenePicker" aria-label="Pick a scene"></div>
+          <form class="add-word" id="mapAddForm" autocomplete="off">
+            <label for="mapAdd" class="sr-only">Add your own word to the map</label>
+            <input id="mapAdd" type="text" placeholder="Add your own word…" spellcheck="false" autocapitalize="off" disabled>
+            <button class="btn btn-primary" type="submit" disabled>Add</button>
+          </form>
+        </div>
+        <p class="msg" id="mapMsg" aria-live="polite"></p>
+        <div class="map-wrap">
+          <svg id="map2d" class="map2d" role="img" aria-label="2D map of words"></svg>
+          <div class="map-legend" id="mapLegend"></div>
+        </div>
+        <p class="hint">Hover or tap a word to see its 3 closest neighbors. We squeeze 300 numbers into 2 so our eyes can see it, so some detail is lost.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 3D GALAXY -->
+  <section class="lesson slide dark" id="step4" aria-labelledby="t4">
+    <div class="wrap">
+      <header class="lesson-head">
+        <p class="kicker">Step 4</p>
+        <h2 id="t4">A galaxy of words</h2>
+        <p class="idea">Here are 1,200 words in 3D. Drag to spin, scroll or pinch to zoom.</p>
+      </header>
+      <div class="galaxy-card">
+        <div class="galaxy-tools">
+          <form class="add-word" id="galaxySearchForm" autocomplete="off">
+            <label for="galaxySearch" class="sr-only">Find a word in the galaxy</label>
+            <input id="galaxySearch" type="text" placeholder="Find a word…" spellcheck="false" autocapitalize="off" disabled>
+            <button class="btn btn-amber" type="submit" disabled>Fly there</button>
+          </form>
+          <div class="seg" role="group" aria-label="What to show">
+            <button type="button" class="seg-btn" id="viewGalaxy" aria-pressed="true">Galaxy</button>
+            <button type="button" class="seg-btn" id="viewScene" aria-pressed="false">3D map of this scene</button>
+          </div>
+        </div>
+        <p class="msg on-dark" id="galaxyMsg" aria-live="polite"></p>
+        <div class="galaxy-stage" id="galaxyStage">
+          <div class="galaxy-canvas" id="galaxyCanvas"><p class="galaxy-wait">The galaxy will appear here…</p></div>
+          <div class="galaxy-labels" id="galaxyLabels" aria-hidden="true"></div>
+          <aside class="galaxy-side" id="galaxySide" hidden aria-live="polite"></aside>
+        </div>
+        <div class="galaxy-legend" id="galaxyLegend" aria-label="Clusters (tap to show or hide)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WORD MATH -->
+  <section class="lesson slide" id="step5" aria-labelledby="t5">
+    <div class="wrap">
+      <header class="lesson-head">
+        <p class="kicker">Step 5</p>
+        <h2 id="t5">Word math</h2>
+        <p class="idea">Directions mean something. Going from “man” to “king” is about the same step as “woman” to “queen”.</p>
+      </header>
+      <div class="card">
+        <div class="chips" id="analogyPresets" aria-label="Try an analogy"></div>
+        <form class="analogy" id="analogyForm" autocomplete="off">
+          <label><span class="sr-only">A</span><input id="anA" type="text" value="man" spellcheck="false" autocapitalize="off" disabled></label>
+          <span class="an-word">is to</span>
+          <label><span class="sr-only">B</span><input id="anB" type="text" value="king" spellcheck="false" autocapitalize="off" disabled></label>
+          <span class="an-word">as</span>
+          <label><span class="sr-only">C</span><input id="anC" type="text" value="woman" spellcheck="false" autocapitalize="off" disabled></label>
+          <span class="an-word">is to</span>
+          <span class="an-q" aria-hidden="true">?</span>
+          <button class="btn btn-primary" type="submit" disabled>Solve</button>
+        </form>
+        <p class="msg" id="analogyMsg" aria-live="polite"></p>
+        <div class="analogy-out">
+          <div class="analogy-result" aria-live="polite">
+            <p class="formula" id="anFormula"></p>
+            <p class="winner" id="anWinner"></p>
+            <ol class="bars" id="anBars"></ol>
+            <p class="note" id="anNote"></p>
+          </div>
+          <figure class="analogy-fig">
+            <svg id="anSvg" class="an-svg" role="img" aria-label="Diagram: the arrow from A to B is copied and starts at C"></svg>
+            <figcaption>Same arrow, new starting point. The dashed ring is where B − A + C lands.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PLAY -->
+  <section class="lesson slide" id="step6" aria-labelledby="t6">
+    <div class="wrap">
+      <header class="lesson-head">
+        <p class="kicker">Step 6</p>
+        <h2 id="t6">Play with meaning</h2>
+        <p class="idea">Test the model yourself. Do you agree with it?</p>
+      </header>
+      <div class="play-grid">
+        <div class="card">
+          <h3>Similarity meter</h3>
+          <div class="chips" id="pairPresets" aria-label="Try a pair"></div>
+          <form class="pair-form" id="simForm" autocomplete="off">
+            <label><span class="sr-only">First word</span><input id="simA" type="text" value="coffee" spellcheck="false" autocapitalize="off" disabled></label>
+            <span class="an-word">vs</span>
+            <label><span class="sr-only">Second word</span><input id="simB" type="text" value="tea" spellcheck="false" autocapitalize="off" disabled></label>
+            <button class="btn btn-primary" type="submit" disabled>Compare</button>
+          </form>
+          <p class="msg" id="simMsg" aria-live="polite"></p>
+          <div class="gauge-wrap">
+            <svg id="gauge" class="gauge" viewBox="0 0 240 140" aria-hidden="true">
+              <defs><linearGradient id="gaugeGrad" x1="0" x2="1"><stop offset="0" stop-color="#D9D0C1"/><stop offset=".5" stop-color="#E0A43A"/><stop offset="1" stop-color="#1E5A5A"/></linearGradient></defs>
+              <path d="M20 120 A100 100 0 0 1 220 120" fill="none" stroke="#EDE6DA" stroke-width="22" stroke-linecap="round"/>
+              <path id="gaugeArc" d="M20 120 A100 100 0 0 1 220 120" fill="none" stroke="url(#gaugeGrad)" stroke-width="22" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/>
+              <g id="gaugeNeedle"><line x1="120" y1="120" x2="120" y2="38" stroke="#1F2A33" stroke-width="4" stroke-linecap="round"/><circle cx="120" cy="120" r="9" fill="#1F2A33"/></g>
+            </svg>
+            <p class="gauge-num" id="gaugeNum" aria-live="polite">–</p>
+            <p class="gauge-label" id="gaugeLabel"></p>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Odd one out</h3>
+          <p class="small">Which word doesn't belong? Pick one, then see what the model thinks.</p>
+          <div class="ooo" id="oooWords" role="group" aria-label="Pick the odd word"></div>
+          <div class="ooo-result" id="oooResult" aria-live="polite"></div>
+          <div class="ooo-bottom">
+            <p class="score">You agreed with the model <b id="oooScore">0</b> of <b id="oooTotal">0</b></p>
+            <button class="btn btn-ghost" type="button" id="oooNext" disabled>Next puzzle →</button>
+          </div>
+          <details class="ooo-own">
+            <summary>Make your own puzzle</summary>
+            <form id="oooForm" autocomplete="off">
+              <div class="ooo-inputs">
+                <label><span class="sr-only">Word 1</span><input type="text" placeholder="word 1" spellcheck="false" autocapitalize="off" disabled></label>
+                <label><span class="sr-only">Word 2</span><input type="text" placeholder="word 2" spellcheck="false" autocapitalize="off" disabled></label>
+                <label><span class="sr-only">Word 3</span><input type="text" placeholder="word 3" spellcheck="false" autocapitalize="off" disabled></label>
+                <label><span class="sr-only">Word 4</span><input type="text" placeholder="word 4" spellcheck="false" autocapitalize="off" disabled></label>
+              </div>
+              <button class="btn btn-primary" type="submit" disabled>Play these 4</button>
+              <p class="msg" id="oooMsg" aria-live="polite"></p>
+            </form>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. RECAP -->
+  <section class="lesson slide recap" id="recap" aria-labelledby="t7">
+    <div class="wrap">
+      <header class="lesson-head">
+        <p class="kicker">Recap</p>
+        <h2 id="t7">What we learned</h2>
+      </header>
+      <ul class="takeaways">
+        <li><span class="ti" aria-hidden="true">1</span><div><b>Words become numbers.</b> Each word is a list of 300 numbers.</div></li>
+        <li><span class="ti" aria-hidden="true">2</span><div><b>Meaning is position.</b> Those numbers are a location in “meaning space”.</div></li>
+        <li><span class="ti" aria-hidden="true">3</span><div><b>Similar words cluster.</b> Words used in similar company end up close together.</div></li>
+        <li><span class="ti" aria-hidden="true">4</span><div><b>Directions are relationships.</b> man → king is roughly the same step as woman → queen.</div></li>
+      </ul>
+      <p class="limits"><b>Limits:</b> the model learned from news text, so it also learned that text's biases. And each word gets just one vector, so “bank” (river) and “bank” (money) are mixed together.</p>
+      <p class="limits small">Newer AI like chatbots builds on the same idea, but gives each word different numbers depending on the sentence around it.</p>
+      <a class="btn btn-primary btn-lg" href="/">← Back to Kitchen Table AI</a>
+    </div>
+  </section>
+</main>
+
+<div class="tip" id="tip" role="tooltip" hidden></div>
+
+<footer class="foot">
+  <p>Model: word2vec GoogleNews-vectors-negative300 (Mikolov et al., 2013), trimmed for the browser. 3D by <a href="./vendor/LICENSE-three.txt">three.js</a> (MIT).</p>
+</footer>
+
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>
