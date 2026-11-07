@@ -34,6 +34,36 @@
     .f2:focus-visible{outline:3px solid #F7F3EC !important;outline-offset:2px !important}
     .h5:hover{background:#154242 !important;color:#fff !important;transform:translateY(-2px) !important}
     .h6:hover{background:rgba(255,255,255,0.85) !important;color:#154242 !important;transform:translateY(-2px) !important}
+    /* Taster signup dialog */
+    .signup { width: min(520px, calc(100% - 32px)); max-height: calc(100dvh - 32px); margin: auto; padding: 0; border: 1px solid rgba(255,255,255,0.9); border-radius: 28px; background: #FBF8F3; color: #1F2A33; box-shadow: 0 30px 80px rgba(31,42,51,0.28); overflow: auto; }
+    .signup::backdrop { background: rgba(31,42,51,0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+    .signup:target:not([open]) { display: block; position: fixed; inset: 0; z-index: 50; }  /* no-JS fallback */
+    html:has(.signup[open]) { overflow: hidden; }
+    .signup__inner { position: relative; padding: clamp(28px, 5vw, 40px); display: flex; flex-direction: column; gap: 20px; }
+    .signup__lamp { position: absolute; top: 0; right: 40px; width: 72px; height: 36px; background: #E0A43A; border-radius: 0 0 999px 999px; }
+    .signup__close { position: absolute; top: 12px; left: 12px; width: 44px; height: 44px; border-radius: 12px; border: none; background: transparent; color: #4F5A65; display: flex; align-items: center; justify-content: center; cursor: pointer; text-decoration: none; }
+    .signup__close:hover { background: rgba(30,90,90,0.07); color: #1F2A33; }
+    .signup__eyebrow { color: #A3461F; font-weight: 700; font-size: 16px; padding-top: 28px; }
+    .signup h2 { font: 400 clamp(30px, 5vw, 38px)/1.12 var(--display), serif; letter-spacing: -0.01em; text-wrap: balance; }
+    .signup__when { display: flex; align-items: center; gap: 10px; background: #F3E2C2; border-radius: 14px; padding: 12px 16px; font-weight: 700; font-size: 16px; }
+    .signup form { display: flex; flex-direction: column; gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-weight: 700; font-size: 17px; }
+    .field input { height: 56px; width: 100%; border: 2px solid #7A8590; border-radius: 10px; padding: 0 16px; font: 18px/1 var(--body), sans-serif; color: #1F2A33; background: #fff; }
+    .field input:focus-visible { outline: 3px solid #1E5A5A; outline-offset: 2px; border-color: #1E5A5A; }
+    .field input[aria-invalid="true"] { border-color: #A3261F; }
+    .field__error { color: #A3261F; font-weight: 700; font-size: 15px; }
+    .signup__submit { height: 56px; border: none; border-radius: 12px; background: #1E5A5A; color: #fff; font: 700 18px/1 var(--body), sans-serif; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 8px 20px rgba(30,90,90,0.25); transition: background .2s, transform .2s; }
+    .signup__submit:hover { background: #154242; transform: translateY(-1px); }
+    .signup__submit:focus-visible { outline: 3px solid #1E5A5A; outline-offset: 2px; }
+    .signup__submit[disabled] { opacity: 0.65; cursor: progress; transform: none; }
+    .signup__fine { font-size: 15px; color: #4F5A65; text-align: center; }
+    .signup__alert { color: #A3261F; font-weight: 700; font-size: 16px; }
+    .vh { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    @media (prefers-reduced-motion: no-preference) {
+      .signup[open] { animation: signup-in .45s cubic-bezier(.2,.7,.2,1); }
+      @keyframes signup-in { from { opacity: 0; transform: translateY(24px) scale(.98); } }
+    }
   </style>
 </head>
 <body>
@@ -42,7 +72,7 @@
 <div style="position:sticky;top:0;z-index:20;padding:12px clamp(12px,3vw,32px)">
   <header role="banner" style="max-width:1120px;margin:0 auto;height:60px;border-radius:20px;padding:0 8px 0 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,0.55);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);border:1px solid rgba(255,255,255,0.8);box-shadow:inset 0 1px 0 rgba(255,255,255,0.9),0 1px 2px rgba(31,42,51,0.06),0 10px 30px rgba(31,42,51,0.08)">
     <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#1E5A5A;font:600 clamp(19px,1.6vw,23px)/1 var(--display),serif;white-space:nowrap"><span style="width:12px;height:12px;border-radius:50%;background:#E0A43A;box-shadow:0 0 12px rgba(224,164,58,0.7);flex:none"></span>Kitchen Table AI</a>
-    <a class="h1 f1" href="/thank-you" style="display:inline-flex;align-items:center;height:44px;padding:0 clamp(14px,1.4vw,20px);border-radius:12px;background:#1E5A5A;color:#fff;font:700 clamp(16px,1.25vw,18px)/1 var(--body),sans-serif;text-decoration:none;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25);transition:transform .2s,background .2s">Try the free taster</a>
+    <a class="h1 f1" href="#taster" data-cta="header" style="display:inline-flex;align-items:center;height:44px;padding:0 clamp(14px,1.4vw,20px);border-radius:12px;background:#1E5A5A;color:#fff;font:700 clamp(16px,1.25vw,18px)/1 var(--body),sans-serif;text-decoration:none;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25);transition:transform .2s,background .2s">Try the free taster</a>
   </header>
 </div>
 
@@ -56,7 +86,7 @@
       <h1 data-in="2" style="font:600 clamp(36px,3.9vw,56px)/1.08 var(--display),serif;letter-spacing:-0.02em;text-wrap:balance">You're not behind. Nobody ever showed you how AI works for a business <span style="background:linear-gradient(transparent 62%,rgba(224,164,58,0.45) 62%,rgba(224,164,58,0.45) 92%,transparent 92%)">like yours.</span></h1>
       <p data-in="3" style="font-size:20px;line-height:1.6;max-width:32em;color:#1F2A33;text-wrap:pretty">A small, beginner-only live workshop. We start with the message you've been avoiding, and you leave with a reply written in your own voice.</p>
       <div data-in="4" style="display:flex;flex-wrap:wrap;gap:12px;padding-top:8px">
-        <a class="h2 f1" href="/thank-you" style="flex:1 1 280px;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 24px;border-radius:12px;background:#1E5A5A;color:#fff;font:700 18px/1 var(--body),sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 8px 20px rgba(30,90,90,0.25);transition:transform .2s,box-shadow .2s,background .2s">Try the free 30-minute taster</a>
+        <a class="h2 f1" href="#taster" data-cta="hero" style="flex:1 1 280px;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 24px;border-radius:12px;background:#1E5A5A;color:#fff;font:700 18px/1 var(--body),sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 8px 20px rgba(30,90,90,0.25);transition:transform .2s,box-shadow .2s,background .2s">Try the free 30-minute taster</a>
         <a class="h3 f1" href="#price" style="flex:1 1 220px;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 24px;border-radius:12px;border:2px solid #1E5A5A;background:rgba(255,255,255,0.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#1E5A5A;font:700 18px/1 var(--body),sans-serif;text-decoration:none;transition:transform .2s,background .2s">Save my seat ($197)</a>
       </div>
       <div data-in="5" style="display:flex;flex-wrap:wrap;gap:8px 24px;color:#4F5A65;font-size:16px">
@@ -292,7 +322,7 @@
     <h2 style="font:600 clamp(36px,3.6vw,52px)/1.1 var(--display),serif;letter-spacing:-0.02em">Start with one message.</h2>
     <p style="font-size:20px">Join the free 30-minute taster and see if this is for you.</p>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%;padding-top:12px">
-      <a class="h5 f1" href="/thank-you" style="flex:1 1 260px;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 24px;border-radius:12px;background:#1E5A5A;color:#fff;font:700 18px/1 var(--body),sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 8px 20px rgba(30,90,90,0.25);transition:transform .2s,background .2s">Try the free 30-minute taster</a>
+      <a class="h5 f1" href="#taster" data-cta="final" style="flex:1 1 260px;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 24px;border-radius:12px;background:#1E5A5A;color:#fff;font:700 18px/1 var(--body),sans-serif;text-decoration:none;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 8px 20px rgba(30,90,90,0.25);transition:transform .2s,background .2s">Try the free 30-minute taster</a>
       <a class="h6 f1" href="#price" style="flex:1 1 200px;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 24px;border-radius:12px;border:2px solid #1E5A5A;background:rgba(255,255,255,0.5);color:#1E5A5A;font:700 18px/1 var(--body),sans-serif;text-decoration:none;transition:transform .2s,background .2s">Save my seat ($197)</a>
     </div>
   </div>
@@ -317,6 +347,46 @@
     </div>
   </div>
 </footer>
+
+<!-- Taster signup. Every "Try the free taster" button opens this. Netlify Forms stores submissions (form name: taster-signup). -->
+<dialog class="signup" id="taster" aria-labelledby="signup-title" aria-describedby="signup-desc">
+  <div class="signup__inner">
+    <span class="signup__lamp" aria-hidden="true"></span>
+    <a class="signup__close" href="#" data-close aria-label="Close">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </a>
+    <p class="signup__eyebrow">Free 30-minute taster</p>
+    <h2 id="signup-title">Save your free spot.</h2>
+    <p id="signup-desc">Two quick details and you're in. I'll email you the link to join.</p>
+    <!-- TODO: replace the date placeholder (also on thank-you.html). -->
+    <p class="signup__when">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E5A5A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+      [Day, Month Date] · 7:00–7:30 p.m. ET · Online
+    </p>
+    <form name="taster-signup" method="POST" action="/thank-you" data-netlify="true" netlify-honeypot="website" novalidate>
+      <input type="hidden" name="form-name" value="taster-signup">
+      <input type="hidden" name="cta" value="">
+      <input type="hidden" name="utm_source" value="">
+      <input type="hidden" name="utm_medium" value="">
+      <input type="hidden" name="utm_campaign" value="">
+      <input type="hidden" name="referrer" value="">
+      <p class="vh"><label>Leave this empty: <input name="website" tabindex="-1" autocomplete="off"></label></p>
+      <div class="field">
+        <label for="su-name">First name</label>
+        <input id="su-name" name="first_name" type="text" autocomplete="given-name" autocapitalize="words" maxlength="60" required aria-describedby="su-name-err">
+        <p class="field__error" id="su-name-err" hidden>Please add your first name.</p>
+      </div>
+      <div class="field">
+        <label for="su-email">Email</label>
+        <input id="su-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" maxlength="254" required aria-describedby="su-email-err">
+        <p class="field__error" id="su-email-err" hidden>Please check your email address. It should look like name@example.com.</p>
+      </div>
+      <p class="signup__alert" id="su-alert" role="alert" hidden>Sorry, that didn't go through. Please try again, or email hello@kitchentable.ai and I'll add you myself.</p>
+      <button class="signup__submit" type="submit">Save my free spot</button>
+      <p class="signup__fine">Free. No card needed. I'll only email you about the taster.</p>
+    </form>
+  </div>
+</dialog>
 
 <script>
 (function () {
@@ -359,6 +429,82 @@
       var wasOpen = this.getAttribute('aria-expanded') === 'true';
       faqs.forEach(function (other) { setFaq(other, false); });
       if (!wasOpen) setFaq(item, true);
+    });
+  });
+
+  /* ---- Taster signup ---- */
+  var dlg = document.getElementById('taster');
+  var form = dlg.querySelector('form');
+  var nameIn = form.first_name, emailIn = form.email;
+  var alertEl = document.getElementById('su-alert');
+  var submitBtn = form.querySelector('[type=submit]');
+  var lastTrigger = null;
+
+  // Attribution: where did this signup come from?
+  try {
+    var params = new URLSearchParams(location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
+      var v = params.get(k) || sessionStorage.getItem(k) || '';
+      if (params.get(k)) sessionStorage.setItem(k, v);
+      form[k].value = v;
+    });
+  } catch (e) {}
+  form.referrer.value = document.referrer || '';
+
+  function openSignup(trigger) {
+    lastTrigger = trigger || null;
+    form.cta.value = (trigger && trigger.dataset.cta) || 'direct';
+    if (dlg.showModal) { if (!dlg.open) dlg.showModal(); }
+    else { location.hash = 'taster'; }
+    setTimeout(function () { nameIn.focus(); }, 30);
+  }
+  function closeSignup() {
+    if (dlg.open) dlg.close();
+    if (location.hash === '#taster') history.replaceState(null, '', location.pathname + location.search);
+  }
+  dlg.addEventListener('close', function () { if (lastTrigger) lastTrigger.focus(); });
+  q('a[href="#taster"]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); openSignup(a); });
+  });
+  dlg.querySelector('[data-close]').addEventListener('click', function (e) { e.preventDefault(); closeSignup(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) closeSignup(); }); // click on backdrop
+  if (location.hash === '#taster') openSignup(null); // shared links like kitchentable.ai/#taster
+
+  function fieldError(input, errId, bad) {
+    input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    document.getElementById(errId).hidden = !bad;
+    return bad;
+  }
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function validate() {
+    nameIn.value = nameIn.value.trim(); emailIn.value = emailIn.value.trim();
+    var badName = fieldError(nameIn, 'su-name-err', !nameIn.value);
+    var badEmail = fieldError(emailIn, 'su-email-err', !EMAIL.test(emailIn.value));
+    if (badName) nameIn.focus(); else if (badEmail) emailIn.focus();
+    return !badName && !badEmail;
+  }
+  // Clear an error as soon as it's fixed (but don't nag while typing).
+  nameIn.addEventListener('input', function () { if (nameIn.getAttribute('aria-invalid') === 'true' && nameIn.value.trim()) fieldError(nameIn, 'su-name-err', false); });
+  emailIn.addEventListener('input', function () { if (emailIn.getAttribute('aria-invalid') === 'true' && EMAIL.test(emailIn.value.trim())) fieldError(emailIn, 'su-email-err', false); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    alertEl.hidden = true;
+    if (!validate()) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Saving your spot…';
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    }).then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      try { sessionStorage.setItem('kt_signup', JSON.stringify({ name: nameIn.value, email: emailIn.value })); } catch (err) {}
+      location.href = '/thank-you';
+    }).catch(function () {
+      alertEl.hidden = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Save my free spot';
     });
   });
 

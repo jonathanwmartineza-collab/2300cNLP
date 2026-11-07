@@ -116,7 +116,7 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
         Success: your spot in the taster is saved
       </p>
-      <h1>You're in. See you at the table.</h1>
+      <h1 id="ty-title">You're in. See you at the table.</h1>
     </div>
 
     <div class="event">
@@ -131,7 +131,7 @@
     <ol class="steps">
       <li class="step">
         <span class="step__num" aria-hidden="true">1</span>
-        <div class="step__body"><p class="step__title">Check your inbox for the link.</p></div>
+        <div class="step__body" style="gap:4px"><p class="step__title">Watch your inbox for the join link.</p><p id="ty-email-note">I'll email it to you before we start.</p></div>
       </li>
       <li class="step">
         <span class="step__num" aria-hidden="true">2</span>
@@ -154,6 +154,8 @@
       <!-- Netlify Forms picks this form up at deploy time; submissions appear under Forms in the Netlify dashboard. -->
       <form id="task-form" name="taster-task" method="POST" action="/" data-netlify="true" netlify-honeypot="company">
         <input type="hidden" name="form-name" value="taster-task">
+        <input type="hidden" name="first_name" value="">
+        <input type="hidden" name="email" value="">
         <p class="visually-hidden"><label>Leave this empty: <input name="company" tabindex="-1" autocomplete="off"></label></p>
         <label for="task">What's one task you'd love off your plate? <span>(optional)</span></label>
         <textarea id="task" name="task" rows="4" placeholder="For example: replying to quote requests"></textarea>
@@ -177,7 +179,25 @@
 
 <script>
   (function () {
+    // Personalize from the signup on the landing page (same browser tab session).
+    var who = null;
+    try { who = JSON.parse(sessionStorage.getItem('kt_signup') || 'null'); } catch (e) {}
+    if (who && who.name) {
+      document.getElementById('ty-title').textContent = "You're in, " + who.name + '. See you at the table.';
+      document.title = "You're in, " + who.name + ' | Kitchen Table AI';
+    }
+    if (who && who.email) {
+      var note = document.getElementById('ty-email-note');
+      note.textContent = "I'll email it to ";
+      var b = document.createElement('strong'); b.textContent = who.email; note.appendChild(b);
+      note.appendChild(document.createTextNode(' before we start. Not you? '));
+      var a = document.createElement('a'); a.href = '/#taster'; a.textContent = 'Fix your email'; note.appendChild(a);
+      note.appendChild(document.createTextNode('.'));
+    }
+
     var form = document.getElementById('task-form');
+    // Tie the optional answer to the person who signed up.
+    if (who) { form.first_name.value = who.name || ''; form.email.value = who.email || ''; }
     var thanks = document.getElementById('task-thanks');
     var error = document.getElementById('task-error');
     var button = form.querySelector('button[type="submit"]');
