@@ -64,6 +64,27 @@
       .signup[open] { animation: signup-in .45s cubic-bezier(.2,.7,.2,1); }
       @keyframes signup-in { from { opacity: 0; transform: translateY(24px) scale(.98); } }
     }
+    /* Link to the NLP Lab */
+    .nav-lab { display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 12px; border-radius: 12px; color: #1E5A5A; font: 700 16px/1 var(--body), sans-serif; text-decoration: none; white-space: nowrap; }
+    .nav-lab:hover { background: rgba(30,90,90,0.08); color: #154242; }
+    .nav-lab:focus-visible, .lab-teaser:focus-visible { outline: 3px solid #E0A43A; outline-offset: 2px; }
+    .nav-lab__new { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; background: #E0A43A; color: #1F2A33; border-radius: 999px; padding: 3px 7px; }
+    @media (max-width: 520px) { .nav-lab__new { display: none; } .nav-lab { padding: 0 8px; } }
+    .cta-short { display: none; }
+    @media (max-width: 520px) { .cta-long { display: none; } .cta-short { display: inline; } }
+    /* Narrow phones: logo + NLP Lab only; the hero's big taster button is on the first screen. */
+    @media (max-width: 440px) { header [data-cta=header] { display: none !important; } .nav-lab { padding: 0 14px; background: rgba(30,90,90,0.08); } }
+    .lab-teaser { display: flex; align-items: center; gap: 18px; padding: 18px 22px; border-radius: 20px; text-decoration: none; color: #F7F3EC; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.28); box-shadow: inset 0 1px 0 rgba(255,255,255,0.25); transition: background .2s, transform .2s; }
+    .lab-teaser:hover { background: rgba(255,255,255,0.18); color: #fff; transform: translateY(-2px); }
+    .lab-teaser__text { flex: 1; font-size: 17px; line-height: 1.5; }
+    .lab-teaser__text strong { color: #fff; }
+    .lab-teaser__go { flex: none; width: 44px; height: 44px; border-radius: 50%; background: #E0A43A; color: #1F2A33; font-weight: 700; font-size: 20px; display: flex; align-items: center; justify-content: center; }
+    .lab-teaser__dots { flex: none; position: relative; width: 52px; height: 44px; }
+    .lab-teaser__dots i { position: absolute; width: 9px; height: 9px; border-radius: 50%; background: #E0A43A; }
+    .lab-teaser__dots i:nth-child(1) { left: 2px; top: 6px; } .lab-teaser__dots i:nth-child(2) { left: 14px; top: 2px; background: #F7F3EC; }
+    .lab-teaser__dots i:nth-child(3) { left: 10px; top: 18px; } .lab-teaser__dots i:nth-child(4) { left: 34px; top: 28px; background: #7CC2B8; }
+    .lab-teaser__dots i:nth-child(5) { left: 42px; top: 14px; background: #7CC2B8; }
+    @media (max-width: 480px) { .lab-teaser__dots { display: none; } .lab-teaser { padding: 16px 18px; } }
   </style>
 </head>
 <body>
@@ -72,7 +93,10 @@
 <div style="position:sticky;top:0;z-index:20;padding:12px clamp(12px,3vw,32px)">
   <header role="banner" style="max-width:1120px;margin:0 auto;height:60px;border-radius:20px;padding:0 8px 0 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,0.55);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%);border:1px solid rgba(255,255,255,0.8);box-shadow:inset 0 1px 0 rgba(255,255,255,0.9),0 1px 2px rgba(31,42,51,0.06),0 10px 30px rgba(31,42,51,0.08)">
     <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#1E5A5A;font:600 clamp(19px,1.6vw,23px)/1 var(--display),serif;white-space:nowrap"><span style="width:12px;height:12px;border-radius:50%;background:#E0A43A;box-shadow:0 0 12px rgba(224,164,58,0.7);flex:none"></span>Kitchen Table AI</a>
-    <a class="h1 f1" href="#taster" data-cta="header" style="display:inline-flex;align-items:center;height:44px;padding:0 clamp(14px,1.4vw,20px);border-radius:12px;background:#1E5A5A;color:#fff;font:700 clamp(16px,1.25vw,18px)/1 var(--body),sans-serif;text-decoration:none;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25);transition:transform .2s,background .2s">Try the free taster</a>
+    <nav aria-label="Main" style="display:flex;align-items:center;gap:4px">
+    <a class="nav-lab" href="/nlp/">NLP Lab<span class="nav-lab__new" aria-hidden="true">new</span></a>
+    <a class="h1 f1" href="#taster" data-cta="header" style="display:inline-flex;align-items:center;height:44px;padding:0 clamp(14px,1.4vw,20px);border-radius:12px;background:#1E5A5A;color:#fff;font:700 clamp(16px,1.25vw,18px)/1 var(--body),sans-serif;text-decoration:none;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(255,255,255,0.25);transition:transform .2s,background .2s"><span class="cta-long">Try the free taster</span><span class="cta-short">Free taster</span></a>
+    </nav>
   </header>
 </div>
 
@@ -189,6 +213,11 @@
       </div>
     </div>
     <p style="font-size:15px;color:#D6E4E1">Example only. In the workshop you'll use a real message from your own inbox, with names taken out.</p>
+    <a class="lab-teaser" href="/nlp/">
+      <span class="lab-teaser__dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <span class="lab-teaser__text"><strong>Curious how AI understands words?</strong> Play with a real word2vec model in 2D and 3D in the interactive NLP Lab.</span>
+      <span class="lab-teaser__go" aria-hidden="true">→</span>
+    </a>
   </div>
 </section>
 
@@ -343,7 +372,7 @@
     </div>
     <div style="display:flex;flex-wrap:wrap;gap:8px 24px">
       <!-- TODO: add Privacy, Terms and Refund policy pages. -->
-      <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refund policy</a><span>© 2026 Kitchen Table AI</span>
+      <a href="/nlp/">NLP Lab</a><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Refund policy</a><span>© 2026 Kitchen Table AI</span>
     </div>
   </div>
 </footer>
