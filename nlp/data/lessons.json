@@ -1,0 +1,722 @@
+{
+ "scenes": [
+  {
+   "id": "animals-food-vehicles",
+   "title": "Animals, food and vehicles",
+   "groups": [
+    {
+     "name": "Animals",
+     "color": "#1E5A5A",
+     "words": [
+      "dog",
+      "cat",
+      "horse",
+      "cow",
+      "lion",
+      "tiger",
+      "rabbit",
+      "sheep"
+     ]
+    },
+    {
+     "name": "Food",
+     "color": "#E0A43A",
+     "words": [
+      "bread",
+      "cheese",
+      "pizza",
+      "pasta",
+      "rice",
+      "soup",
+      "sandwich",
+      "cake"
+     ]
+    },
+    {
+     "name": "Vehicles",
+     "color": "#A3461F",
+     "words": [
+      "car",
+      "truck",
+      "bus",
+      "train",
+      "bicycle",
+      "motorcycle",
+      "airplane",
+      "boat"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "countries-capitals",
+   "title": "Countries, capitals and languages",
+   "groups": [
+    {
+     "name": "Countries",
+     "color": "#1E5A5A",
+     "words": [
+      "France",
+      "Germany",
+      "Italy",
+      "Spain",
+      "Japan",
+      "Russia",
+      "Greece",
+      "Portugal"
+     ]
+    },
+    {
+     "name": "Capital cities",
+     "color": "#E0A43A",
+     "words": [
+      "Paris",
+      "Berlin",
+      "Rome",
+      "Madrid",
+      "Tokyo",
+      "Moscow",
+      "Athens",
+      "Lisbon"
+     ]
+    },
+    {
+     "name": "Languages",
+     "color": "#A3461F",
+     "words": [
+      "French",
+      "German",
+      "Italian",
+      "Spanish",
+      "Japanese",
+      "Russian",
+      "Greek",
+      "Portuguese"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "emotions",
+   "title": "Happy, sad and angry feelings",
+   "groups": [
+    {
+     "name": "Happy",
+     "color": "#1E5A5A",
+     "words": [
+      "happy",
+      "glad",
+      "delighted",
+      "thrilled",
+      "excited",
+      "pleased"
+     ]
+    },
+    {
+     "name": "Sad",
+     "color": "#E0A43A",
+     "words": [
+      "sad",
+      "miserable",
+      "lonely",
+      "depressed",
+      "heartbroken",
+      "gloomy"
+     ]
+    },
+    {
+     "name": "Angry",
+     "color": "#A3461F",
+     "words": [
+      "angry",
+      "furious",
+      "annoyed",
+      "irritated",
+      "outraged",
+      "enraged"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "family-gender",
+   "title": "He and she: male and female words",
+   "groups": [
+    {
+     "name": "Male",
+     "color": "#1E5A5A",
+     "words": [
+      "he",
+      "him",
+      "his",
+      "man",
+      "boy",
+      "brother",
+      "father",
+      "king"
+     ]
+    },
+    {
+     "name": "Female",
+     "color": "#B5487A",
+     "words": [
+      "she",
+      "her",
+      "hers",
+      "woman",
+      "girl",
+      "sister",
+      "mother",
+      "queen"
+     ]
+    }
+   ]
+  }
+ ],
+ "analogies": [
+  {
+   "a": "man",
+   "b": "king",
+   "c": "woman",
+   "expected": "queen",
+   "rank": 1,
+   "top": [
+    [
+     "queen",
+     0.71
+    ],
+    [
+     "royal",
+     0.49
+    ],
+    [
+     "bride",
+     0.37
+    ],
+    [
+     "she",
+     0.33
+    ],
+    [
+     "lady",
+     0.33
+    ]
+   ]
+  },
+  {
+   "a": "man",
+   "b": "actor",
+   "c": "woman",
+   "expected": "actress",
+   "rank": 1,
+   "top": [
+    [
+     "actress",
+     0.86
+    ],
+    [
+     "actors",
+     0.57
+    ],
+    [
+     "singer",
+     0.54
+    ],
+    [
+     "film",
+     0.48
+    ],
+    [
+     "movie",
+     0.47
+    ]
+   ]
+  },
+  {
+   "a": "boy",
+   "b": "brother",
+   "c": "girl",
+   "expected": "sister",
+   "rank": 1,
+   "top": [
+    [
+     "sister",
+     0.82
+    ],
+    [
+     "cousin",
+     0.75
+    ],
+    [
+     "daughter",
+     0.73
+    ],
+    [
+     "niece",
+     0.71
+    ],
+    [
+     "son",
+     0.7
+    ]
+   ]
+  },
+  {
+   "a": "France",
+   "b": "Paris",
+   "c": "Italy",
+   "expected": "Rome",
+   "rank": 2,
+   "top": [
+    [
+     "Milan",
+     0.72
+    ],
+    [
+     "Rome",
+     0.7
+    ],
+    [
+     "Italian",
+     0.59
+    ],
+    [
+     "Budapest",
+     0.51
+    ],
+    [
+     "Madrid",
+     0.48
+    ]
+   ]
+  },
+  {
+   "a": "France",
+   "b": "Paris",
+   "c": "Japan",
+   "expected": "Tokyo",
+   "rank": 1,
+   "top": [
+    [
+     "Tokyo",
+     0.81
+    ],
+    [
+     "Osaka",
+     0.64
+    ],
+    [
+     "Seoul",
+     0.61
+    ],
+    [
+     "Japanese",
+     0.59
+    ],
+    [
+     "Bangkok",
+     0.52
+    ]
+   ]
+  },
+  {
+   "a": "Germany",
+   "b": "Berlin",
+   "c": "Russia",
+   "expected": "Moscow",
+   "rank": 1,
+   "top": [
+    [
+     "Moscow",
+     0.8
+    ],
+    [
+     "Russian",
+     0.62
+    ],
+    [
+     "Ukraine",
+     0.51
+    ],
+    [
+     "Warsaw",
+     0.49
+    ],
+    [
+     "Prague",
+     0.49
+    ]
+   ]
+  },
+  {
+   "a": "walk",
+   "b": "walked",
+   "c": "swim",
+   "expected": "swam",
+   "rank": 1,
+   "top": [
+    [
+     "swam",
+     0.79
+    ],
+    [
+     "swimming",
+     0.67
+    ],
+    [
+     "swims",
+     0.6
+    ],
+    [
+     "ran",
+     0.48
+    ],
+    [
+     "rowing",
+     0.45
+    ]
+   ]
+  },
+  {
+   "a": "go",
+   "b": "went",
+   "c": "run",
+   "expected": "ran",
+   "rank": 1,
+   "top": [
+    [
+     "ran",
+     0.63
+    ],
+    [
+     "drove",
+     0.56
+    ],
+    [
+     "runs",
+     0.53
+    ],
+    [
+     "took",
+     0.46
+    ],
+    [
+     "raced",
+     0.46
+    ]
+   ]
+  },
+  {
+   "a": "cat",
+   "b": "cats",
+   "c": "dog",
+   "expected": "dogs",
+   "rank": 1,
+   "top": [
+    [
+     "dogs",
+     0.91
+    ],
+    [
+     "pets",
+     0.75
+    ],
+    [
+     "animals",
+     0.7
+    ],
+    [
+     "puppy",
+     0.67
+    ],
+    [
+     "pet",
+     0.64
+    ]
+   ]
+  },
+  {
+   "a": "mouse",
+   "b": "mice",
+   "c": "child",
+   "expected": "children",
+   "rank": 1,
+   "top": [
+    [
+     "children",
+     0.62
+    ],
+    [
+     "infant",
+     0.57
+    ],
+    [
+     "babies",
+     0.57
+    ],
+    [
+     "baby",
+     0.53
+    ],
+    [
+     "mothers",
+     0.49
+    ]
+   ]
+  },
+  {
+   "a": "good",
+   "b": "better",
+   "c": "bad",
+   "expected": "worse",
+   "rank": 1,
+   "top": [
+    [
+     "worse",
+     0.73
+    ],
+    [
+     "sooner",
+     0.53
+    ],
+    [
+     "differently",
+     0.52
+    ],
+    [
+     "quicker",
+     0.52
+    ],
+    [
+     "harder",
+     0.51
+    ]
+   ]
+  },
+  {
+   "a": "fast",
+   "b": "faster",
+   "c": "slow",
+   "expected": "slower",
+   "rank": 1,
+   "top": [
+    [
+     "slower",
+     0.77
+    ],
+    [
+     "quicker",
+     0.63
+    ],
+    [
+     "slowed",
+     0.59
+    ],
+    [
+     "slowing",
+     0.57
+    ],
+    [
+     "sluggish",
+     0.49
+    ]
+   ]
+  },
+  {
+   "a": "Spain",
+   "b": "Spanish",
+   "c": "Italy",
+   "expected": "Italian",
+   "rank": 1,
+   "top": [
+    [
+     "Italian",
+     0.83
+    ],
+    [
+     "French",
+     0.54
+    ],
+    [
+     "Portuguese",
+     0.49
+    ],
+    [
+     "German",
+     0.48
+    ],
+    [
+     "Japanese",
+     0.45
+    ]
+   ]
+  },
+  {
+   "a": "big",
+   "b": "bigger",
+   "c": "small",
+   "expected": "smaller",
+   "rank": 2,
+   "top": [
+    [
+     "larger",
+     0.74
+    ],
+    [
+     "smaller",
+     0.73
+    ],
+    [
+     "tiny",
+     0.57
+    ],
+    [
+     "large",
+     0.52
+    ],
+    [
+     "size",
+     0.5
+    ]
+   ]
+  }
+ ],
+ "pairs": [
+  {
+   "a": "dog",
+   "b": "puppy",
+   "sim": 0.81
+  },
+  {
+   "a": "dog",
+   "b": "cat",
+   "sim": 0.76
+  },
+  {
+   "a": "car",
+   "b": "truck",
+   "sim": 0.67
+  },
+  {
+   "a": "king",
+   "b": "queen",
+   "sim": 0.65
+  },
+  {
+   "a": "coffee",
+   "b": "tea",
+   "sim": 0.56
+  },
+  {
+   "a": "happy",
+   "b": "sad",
+   "sim": 0.54
+  },
+  {
+   "a": "apple",
+   "b": "banana",
+   "sim": 0.53
+  },
+  {
+   "a": "dog",
+   "b": "car",
+   "sim": 0.31
+  },
+  {
+   "a": "banana",
+   "b": "democracy",
+   "sim": 0.14
+  },
+  {
+   "a": "piano",
+   "b": "tuesday",
+   "sim": 0.05
+  }
+ ],
+ "oddOneOut": [
+  {
+   "words": [
+    "cherry",
+    "apple",
+    "banana",
+    "car"
+   ],
+   "answer": "car"
+  },
+  {
+   "words": [
+    "piano",
+    "dog",
+    "horse",
+    "cat"
+   ],
+   "answer": "piano"
+  },
+  {
+   "words": [
+    "blue",
+    "green",
+    "Paris",
+    "red"
+   ],
+   "answer": "Paris"
+  },
+  {
+   "words": [
+    "carrot",
+    "guitar",
+    "violin",
+    "piano"
+   ],
+   "answer": "carrot"
+  },
+  {
+   "words": [
+    "Italy",
+    "France",
+    "Tokyo",
+    "Germany"
+   ],
+   "answer": "Tokyo"
+  },
+  {
+   "words": [
+    "mother",
+    "father",
+    "truck",
+    "sister"
+   ],
+   "answer": "truck"
+  },
+  {
+   "words": [
+    "refrigerator",
+    "cheerful",
+    "glad",
+    "happy"
+   ],
+   "answer": "refrigerator"
+  },
+  {
+   "words": [
+    "spoon",
+    "tennis",
+    "soccer",
+    "basketball"
+   ],
+   "answer": "spoon"
+  }
+ ],
+ "barcodeExamples": [
+  [
+   "king",
+   "queen",
+   "banana"
+  ],
+  [
+   "cat",
+   "dog",
+   "car"
+  ]
+ ]
+}
