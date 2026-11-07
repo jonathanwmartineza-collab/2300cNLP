@@ -18,3 +18,14 @@
   from = "/thank-you"
   to = "/thank-you.html"
   status = 200
+
+# NLP Lab: three.js never changes; the model data rarely does.
+[[headers]]
+  for = "/nlp/vendor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/nlp/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

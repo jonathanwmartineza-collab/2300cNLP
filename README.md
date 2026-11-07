@@ -7,6 +7,9 @@ Plain static HTML/CSS/JS (no build step), deployed on Netlify from `main`.
 - `fonts/` – self-hosted Atkinson Hyperlegible Next + DM Serif Display, loaded via `fonts/fonts.css`
 - `images/` – hero photo and teacher photo
 - `netlify.toml` – publish settings, headers, `/thank-you` rewrite
+- `nlp/` – **NLP Lab** at `/nlp/`: an interactive lesson on word embeddings using Google's pretrained word2vec (Google News, 300 numbers per word, trimmed to 8,233 words). Steps: words → numbers, how word2vec learns, 2D word map, 3D word galaxy (three.js), word math (king − man + woman = queen), similarity meter and odd-one-out game. Press **P** for present mode (arrow keys move between steps).
+  - `nlp/data/` – `vocab.json` + `vectors.bin` (int8, N×300), `galaxy.json` (3D UMAP layout), `lessons.json` (verified presets)
+  - `nlp/js/` – plain ES modules, no build step; `nlp/vendor/` – three.js 0.160 (MIT)
 
 ## Taster signup flow
 

@@ -176,9 +176,11 @@
           </div>
         </div>
         <p class="msg on-dark" id="galaxyMsg" aria-live="polite"></p>
-        <div class="galaxy-stage" id="galaxyStage">
-          <div class="galaxy-canvas" id="galaxyCanvas"><p class="galaxy-wait">The galaxy will appear here…</p></div>
-          <div class="galaxy-labels" id="galaxyLabels" aria-hidden="true"></div>
+        <div class="galaxy-body">
+          <div class="galaxy-stage" id="galaxyStage">
+            <div class="galaxy-canvas" id="galaxyCanvas"><p class="galaxy-wait">The galaxy will appear here…</p></div>
+            <div class="galaxy-labels" id="galaxyLabels" aria-hidden="true"></div>
+          </div>
           <aside class="galaxy-side" id="galaxySide" hidden aria-live="polite"></aside>
         </div>
         <div class="galaxy-legend" id="galaxyLegend" aria-label="Clusters (tap to show or hide)"></div>
@@ -195,7 +197,7 @@
         <p class="idea">Directions mean something. Going from “man” to “king” is about the same step as “woman” to “queen”.</p>
       </header>
       <div class="card">
-        <div class="chips" id="analogyPresets" aria-label="Try an analogy"></div>
+        <div class="chips chips-scroll" id="analogyPresets" aria-label="Try an analogy"></div>
         <form class="analogy" id="analogyForm" autocomplete="off">
           <label><span class="sr-only">A</span><input id="anA" type="text" value="man" spellcheck="false" autocapitalize="off" disabled></label>
           <span class="an-word">is to</span>
@@ -234,7 +236,7 @@
       <div class="play-grid">
         <div class="card">
           <h3>Similarity meter</h3>
-          <div class="chips" id="pairPresets" aria-label="Try a pair"></div>
+          <div class="chips chips-scroll" id="pairPresets" aria-label="Try a pair"></div>
           <form class="pair-form" id="simForm" autocomplete="off">
             <label><span class="sr-only">First word</span><input id="simA" type="text" value="coffee" spellcheck="false" autocapitalize="off" disabled></label>
             <span class="an-word">vs</span>

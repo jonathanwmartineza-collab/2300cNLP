@@ -166,7 +166,7 @@ input[type="text"]:disabled { background: var(--sand); }
 .map2d .grid line { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 6; }
 .map2d .pt { cursor: pointer; transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .3s; }
 .map2d .pt .mk { stroke: #fff; stroke-width: 2; }
-.map2d .pt text { font: 700 14px var(--body); fill: var(--ink); paint-order: stroke; stroke: rgba(247,243,236,0.92); stroke-width: 4px; stroke-linejoin: round; pointer-events: none; }
+.map2d .pt text { font: 700 14px var(--body); fill: var(--ink); paint-order: stroke; stroke: rgba(247,243,236,0.92); stroke-width: 4px; stroke-linejoin: round; }
 .map2d .pt:hover .mk, .map2d .pt:focus .mk, .map2d .pt.on .mk { stroke: var(--ink); stroke-width: 2.5; }
 .map2d .pt.dim { opacity: .3; }
 .map2d .pt:focus { outline: none; }
@@ -189,6 +189,7 @@ input[type="text"]:disabled { background: var(--sand); }
 .seg { display: inline-flex; padding: 4px; border-radius: 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); flex-wrap: wrap; }
 .seg-btn { min-height: 44px; padding: 0 14px; border: 0; border-radius: 10px; background: transparent; color: #E9E2D4; font: 700 15px var(--body); cursor: pointer; }
 .seg-btn[aria-pressed="true"] { background: var(--amber); color: var(--ink); }
+.galaxy-body { position: relative; }
 .galaxy-stage { position: relative; height: clamp(420px, 62vw, 640px); border-radius: 18px; overflow: hidden;
   background: radial-gradient(ellipse at 50% 40%, #1d4446 0%, #10292B 55%, #0b1c1e 100%); }
 .galaxy-canvas, .galaxy-canvas canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
@@ -329,7 +330,13 @@ html.present-html .slide { scroll-snap-align: start; }
   .analogy .an-word { flex: 0 0 auto; }
   .page-label { display: none; }
   #presentBtn span { display: none; }
-  .galaxy-side { top: auto; bottom: 12px; max-height: 45%; }
+  .galaxy-side { position: static; width: 100%; max-height: none; margin-top: 12px; }
+  .steps ol { gap: 2px; }
+  .lg-btn { min-height: 36px; font-size: 13px; padding: 0 10px; }
+  .galaxy-legend { gap: 6px; }
+  .steps a { padding: 0 5px; gap: 6px; }
+  .chips-scroll { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; margin: 0 -4px; padding-left: 4px; scrollbar-width: thin; }
+  .chips-scroll .chip { flex: none; }
 }
 @media (max-width: 420px) {
   .bar { padding-left: 14px; }

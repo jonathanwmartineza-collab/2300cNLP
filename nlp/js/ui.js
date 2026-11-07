@@ -38,7 +38,7 @@ export function resolveWord(model, input, msgEl, onRetry, { quiet = false } = {}
 }
 
 export function showMissing(model, raw, msgEl, pick) {
-  msgEl.className = msgEl.className.replace(/\berr\b/g, '').trim() + ' err';
+  msgEl.classList.add('err');
   msgEl.textContent = '';
   const t = String(raw).trim();
   if (!t) { msgEl.textContent = 'Type a word first.'; return; }
@@ -51,7 +51,7 @@ export function showMissing(model, raw, msgEl, pick) {
   if (s.length) {
     msgEl.append(' Did you mean:');
     const box = el('span', { class: 'sugg' });
-    for (const w of s) box.append(el('button', { type: 'button', text: pretty(w), onclick: () => pick(w) }));
+    for (const w of s) box.append(el('button', { type: 'button', text: pretty(w), onpointerdown: e => e.preventDefault(), onclick: () => pick(w) }));
     msgEl.append(box);
   } else msgEl.append(' Try a more common word.');
 }

@@ -144,15 +144,17 @@ function initBarcodes(state) {
     const row = { input, canvas, err, idx: -1 };
     box.append(el('div', { class: 'bc-row' }, input, canvas, err));
     if (r < 2) { const s = el('p', { class: 'bc-sim', 'aria-live': 'polite' }); sims.push(s); box.append(s); }
-    const commit = () => {
+    const commit = (force) => {
+      if (force !== true && input.value === row.last) return;
+      row.last = input.value;
       clearMsg(err);
-      row.idx = resolveWord(model, input, err, commit);
+      row.idx = resolveWord(model, input, err, () => commit(true));
       draw(row); updateSims(); markPreset();
     };
     let t;
     input.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { if (model.find(input.value) >= 0) commit(); }, 250); });
-    input.addEventListener('change', commit);
-    input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); commit(); } });
+    input.addEventListener('change', () => commit());
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); commit(true); } });
     const hover = e => {
       if (row.idx < 0) return;
       const rect = canvas.getBoundingClientRect();
@@ -199,7 +201,7 @@ function initBarcodes(state) {
     chips.forEach(([b, ex]) => b.setAttribute('aria-pressed', String(ex.map(w => model.words[model.find(w)]).join('|') === cur)));
   }
   function load(ex) {
-    rows.forEach((r, i) => { r.input.value = pretty(ex[i] || ''); clearMsg(r.err); r.idx = model.find(r.input.value); r.input.classList.remove('bad'); draw(r); });
+    rows.forEach((r, i) => { r.input.value = pretty(ex[i] || ''); r.last = r.input.value; clearMsg(r.err); r.idx = model.find(r.input.value); r.input.classList.remove('bad'); draw(r); });
     updateSims(); markPreset();
   }
   load(examples[0]);
@@ -222,7 +224,7 @@ function setupSentence() {
   });
   function render() {
     box.textContent = '';
-    tokens = SENTENCES[si].split(' ').map(w => { const t = el('span', { class: 'tok', text: w }); box.append(t); return t; });
+    tokens = SENTENCES[si].split(' ').map(w => { const t = el('span', { class: 'tok', 'data-w': w, text: w }); box.append(t); return t; });
   }
   function reset() { stop(); render(); pos = -1; count = 0; countEl.textContent = '0'; list.textContent = ''; }
   function step() {
@@ -237,10 +239,10 @@ function setupSentence() {
     });
     [...list.children].forEach(li => li.classList.add('old'));
     while (list.children.length > 14) list.firstChild.remove();
-    const c = tokens[pos].textContent;
+    const c = tokens[pos].dataset.w;
     for (let i = Math.max(0, pos - W); i <= Math.min(tokens.length - 1, pos + W); i++) {
       if (i === pos) continue;
-      list.append(el('li', {}, el('span', { class: 'c', text: c }), '→', el('span', { class: 'x', text: tokens[i].textContent })));
+      list.append(el('li', {}, el('span', { class: 'c', text: c }), '→', el('span', { class: 'x', text: tokens[i].dataset.w })));
       count++;
     }
     countEl.textContent = String(count);
